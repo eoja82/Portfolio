@@ -1,0 +1,34 @@
+.images {
+  display: flex;
+  flex-direction: column;
+  max-width: 60%;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* give the initial angle back look */
+.photoFigure {
+  perspective: 100px;
+}
+
+.photoNotFlipped {
+  display: flex;
+  justify-content: center;
+  transform: rotateX(10deg);
+  opacity: 0;
+  width: 100%;
+  margin: 300px auto;
+}
+
+@keyframes perspective {
+  0% {transform: rotateX(10deg); opacity: 0;}
+  100% {transform: rotateX(0deg); opacity: 1;}
+}
+
+.photoFlipped {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 300px auto;
+  animation: perspective 1s;
+}
