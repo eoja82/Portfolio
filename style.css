@@ -1,34 +1,127 @@
-.images {
+:root {
+  --intro-gb-color: #1C3240;
+  --text-color: #F2F2F2;
+  --pd-mg-color: #8AABBF;
+  --blue: #0D5B8C;
+  --dk-blue: #094A73;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+nav {
+  background-color: var(--intro-gb-color);
+  color: var(--text-color);
+}
+#intro {
+  background-color: var(--intro-gb-color);
+  width: 100%;
+  height: 100vh;
+  margin-top: -19px;
   display: flex;
   flex-direction: column;
-  max-width: 60%;
   justify-content: center;
-  margin: 0 auto;
+  align-items: center;
+}
+#hello {
+  text-align: center;
+  color: var(--text-color);
+}
+.fadeInDown {
+  font-size: 2rem;
+  animation-duration: 1.5s;
+}
+.fadeInUp {
+  animation-delay: 1.5s;
+  animation-duration: 1.5s;
 }
 
+/* begin fade photo in */
+.images {
+  background-color: var(--text);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* width: 100%; */
+  justify-content: space-evenly;
+  /* margin: 30px; */
+}
 /* give the initial angle back look */
-.photoFigure {
+.photoDiv {
+  padding: 10px;
+  max-width: 50%;
   perspective: 100px;
 }
-
 .photoNotFlipped {
   display: flex;
   justify-content: center;
   transform: rotateX(10deg);
   opacity: 0;
-  width: 100%;
-  margin: 300px auto;
+  width: 50%;
+  margin: 10px;
 }
-
 @keyframes perspective {
   0% {transform: rotateX(10deg); opacity: 0;}
   100% {transform: rotateX(0deg); opacity: 1;}
 }
-
+@keyframes imgSize {
+  0% {width: 50%;}
+  100% {width: 100%;}
+}
 .photoFlipped {
   display: flex;
   justify-content: center;
-  width: 100%;
-  margin: 300px auto;
+  /* padding: 10px; */
+  max-width: 100%;
+  /* margin: 10px; */
   animation: perspective 1s;
+  /* animation: imgSize 1s; */
+  
+}
+/* end fade photo in */
+
+#footerSpacer {
+  width: 100%;
+  height: 40px;
+  background-color: var(--blue);
+}
+#footerCanvas {
+  display: block;
+  background-color: var(--blue);
+}
+#contact {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 200px;
+  background-color: var(--blue);
+}
+.contactIcon a {
+  width: 65px;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background-color: var(--intro-gb-color);
+  text-decoration: none;
+  border-radius: 50%;
+  border: 2px solid var(--pd-mg-color);
+}
+.contactIcon i {
+  color: var(--pd-mg-color);
+}
+footer p {
+  margin: 0;
+  padding: 16px 0;
+  text-align: center;
+  background-color: var(--text-color);
+  color: var(--pd-mg-color);
 }

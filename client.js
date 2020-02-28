@@ -9,27 +9,23 @@ const imgs = [
   {src: "img/IMG_5949.jpg", alt: "cat and dog"}
 ];
 
+// add images to DOM
 const images = document.querySelector(".images");
 
 imgs.forEach( (x, i) => {
-  // figure wrapper parent element to apply css perspective
-  let figure = document.createElement("figure");
-  figure.className = "photoFigure";
+  // div wrapper parent element to apply css perspective
+  let div = document.createElement("div");
+  div.className = "photoDiv";
   let img = document.createElement("img");
   img.className = "photoNotFlipped"
   img.id = `photo${i}`
   img.src = x.src;
   img.alt = x.alt;
-  /* img.addEventListener("click", perspective); */
-  figure.appendChild(img);
-  images.appendChild(figure);
+  div.appendChild(img);
+  images.appendChild(div);
 });
 
-/* function perspective(e) {
-  let img = document.getElementById(e.target.id);
-  img.className = "photoFlipped"
-} */
-
+// fade in and flip images on scroll
 (function() {
   let images, windowHeight;
 
@@ -43,13 +39,11 @@ imgs.forEach( (x, i) => {
     let i = 0;
     for (i; i < images.length; i++) {
       let positionFromTop = images[i].getBoundingClientRect().top;
-      //console.log(positionFromTop);
       if (positionFromTop + 75 - windowHeight <= 0) {
-        //console.log("scrolled into view " + images[i].id + " fromtop: " + positionFromTop);
         images[i].className = "photoFlipped"
-      } /* else {
+      } else {
         images[i].className = "photoNotFlipped";
-      } */
+      }
     }
   }
 
@@ -59,3 +53,52 @@ imgs.forEach( (x, i) => {
   init();
   imgPosition();
 })();
+
+// draw footer canvas
+const fCanvas = document.getElementById("footerCanvas");
+
+fCanvas.width = innerWidth;
+fCanvas.height = fCanvas.width * 0.12;
+fc = fCanvas.getContext("2d");
+
+// resize canvas if window resized
+addEventListener("resize", () => {
+  fCanvas.width = window.innerWidth;
+  fCanvas.height = fCanvas.width * 0.12;
+  console.log(fCanvas.width, fCanvas.height);
+  fcInit();
+})
+
+function fcInit() {
+  let x0 = 0.2, y0 = 0;
+      x1 = innerWidth / 2, y1 = 0.2,
+      x2 = 0.8, y2 = 0;
+      x3 = x1, y3 = fCanvas.height,
+      fontSize = 50;
+
+  if (innerWidth < 900) {
+    x0 = 0.1, x2 = 0.9, fontSize = 40;
+  }
+  if (innerWidth < 440) {
+    x0 = 0.05, x2 = 0.95, fontSize = 20;
+  }
+
+  fc.beginPath();
+  fc.moveTo(innerWidth * x0, y0);
+  fc.lineTo(x1, fCanvas.height * y1);
+  fc.lineTo(innerWidth * x2, y2);
+  fc.lineTo(x3, y3);
+  fc.lineTo(innerWidth * x0, y0);
+  fc.fillStyle = "#8AABBF";
+  fc.strokeStyle = "#1C3240";
+  fc.lineWidth = 2;
+  fc.fill();
+  fc.stroke();
+
+  
+  fc.font = `${fontSize}px monospace`;
+  fc.fillStyle = "#1C3240";
+  fc.textAlign = "center";
+  fc.fillText("Contact", innerWidth / 2, fCanvas.height * 0.6);
+}
+fcInit();
