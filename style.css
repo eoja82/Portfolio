@@ -12,15 +12,17 @@ body {
   margin: 0;
   padding: 0;
 }
+
 nav {
   background-color: var(--intro-gb-color);
   color: var(--text-color);
 }
+
 #intro {
   background-color: var(--intro-gb-color);
   width: 100%;
-  height: 100vh;
-  margin-top: -19px;
+  height: calc(100vh - 19px);
+  /* margin-top: -19px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,50 +41,96 @@ nav {
   animation-duration: 1.5s;
 }
 
-/* begin fade photo in */
-.images {
+#skillSection {
+  background-color: var(--blue);
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 15px;
+}
+#skillsH2 {
+  font-size: 2rem;
+  text-align: center;
+  color: var(--pd-mg-color);
+}
+#skills {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 80%;
+  height: auto;
+  margin: 0 auto;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.skillBtn {
+  width: 100px;
+  height: 100px;
+  font-size: 1rem;
+  margin: 10px 20px;
+  border: 2px solid;
+  border-color: var(--pd-mg-color);
+  background-color: var(--intro-gb-color);
+  color: var(--pd-mg-color);
+  border-radius: 50%;
+  transition: .3s;
+}
+.skillBtn:hover {
+  background-color: var(--pd-mg-color);
+  color: var(--intro-gb-color);
+  cursor: pointer;
+}
+.activeBtn, .activeBtn:hover {
+  background-color: var(--pd-mg-color);
+  color: var(--intro-gb-color);
+  border-color: var(--intro-gb-color);
+}
+
+#projects {
   background-color: var(--text);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* width: 100%; */
   justify-content: space-evenly;
-  /* margin: 30px; */
 }
-/* give the initial angle back look */
-.photoDiv {
-  padding: 10px;
-  max-width: 50%;
-  perspective: 100px;
-}
-.photoNotFlipped {
-  display: flex;
-  justify-content: center;
-  transform: rotateX(10deg);
-  opacity: 0;
-  width: 50%;
-  margin: 10px;
-}
-@keyframes perspective {
-  0% {transform: rotateX(10deg); opacity: 0;}
-  100% {transform: rotateX(0deg); opacity: 1;}
-}
-@keyframes imgSize {
-  0% {width: 50%;}
-  100% {width: 100%;}
-}
-.photoFlipped {
-  display: flex;
-  justify-content: center;
+.projectDiv {
+  position: relative;
   /* padding: 10px; */
-  max-width: 100%;
-  /* margin: 10px; */
-  animation: perspective 1s;
-  /* animation: imgSize 1s; */
-  
+  max-width: 50%;
+  display: none;
 }
-/* end fade photo in */
+.projectActive {
+  display: block;
+}
+.project {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  /* margin: 10px; */
+}
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(155, 155, 155, .5);
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+.projectDiv:hover .overlay {
+  height: 100%;
+}
+.overlayText {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 
+/* footer css */
 #footerSpacer {
   width: 100%;
   height: 40px;
