@@ -46,6 +46,7 @@ nav {
   display: flex;
   flex-direction: column;
   padding-bottom: 15px;
+  margin-top: 20px;
 }
 #skillsH2 {
   font-size: 2rem;
@@ -90,12 +91,14 @@ nav {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  max-width: 80%;
+  margin: 20px auto;
+  justify-content: flex-start;
 }
 .projectDiv {
   position: relative;
   /* padding: 10px; */
-  max-width: 50%;
+  max-width: calc(100% / 3);
   display: none;
 }
 .projectActive {

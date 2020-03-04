@@ -1,16 +1,4 @@
-const portfolio = [
-  {src: "img/IMG_0887.jpeg", alt: "bear", skills: ["HTML", "Javascript", "CSS", "React"]},
-  {src: "img/IMG_0926.jpeg", alt: "cat and dog", skills: ["bootstrap", "Javascript", "CSS"]},
-  {src: "img/IMG_0928.jpeg", alt: "cat and dog", skills: ["HTML", "node.js", "d3.js"]},
-  {src: "img/IMG_0933.jpeg", alt: "cat and dog", skills: ["python", "C", "npm"]},
-  {src: "img/IMG_0983.jpg", alt: "cat and dog", skills: ["npm", "bootstrap", "Javascript"]},
-  {src: "img/IMG_1003.jpg", alt: "bear", skills: ["node.js", "npm", "bootstrap"]},
-  {src: "img/IMG_1004.jpg", alt: "bear", skills: ["mongoDB", "mongoose", "express"]},
-  {src: "img/IMG_5949.jpg", alt: "cat and dog", skills: ["HTML", "React", "gatsby", "Javascript"]}
-];
-
-const skillset = ["All Skills", "Javascript", "React", "CSS",
-                "python", "C", "npm", "node.js", "mongoDB", "mongoose", "express", "HTML", "gatsby"];
+import { portfolio, skillset } from "./data.js"
 
 // add portfolio to DOM
 const projects = document.querySelector("#projects");
@@ -21,7 +9,7 @@ portfolio.forEach( (x, i) => {
   div.className = "projectDiv projectActive";
   let img = document.createElement("img");
   img.className = "project";
-  img.style.visibility = "hidden";
+  /* img.style.visibility = "hidden"; */
   img.id = `photo${i}`
   img.src = x.src;
   img.alt = x.alt;
@@ -57,7 +45,7 @@ function filter(event) {
   let projects = document.querySelectorAll(".projectDiv");
   let buttons = document.querySelectorAll(".skillBtn");
   projects.forEach( (x, i) => {
-    if (portfolio[i].skills.includes(event.target.innerText) || event == "All Skills") {
+    if (portfolio[i].skills.includes(event.target.innerText) || event.target.innerText == "All Skills") {
       x.classList.add("projectActive");
     } else {
       x.classList.remove("projectActive");
@@ -73,13 +61,12 @@ function filter(event) {
 }
 
 // fade in and flip images on scroll
-(function() {
+/* (function() {
   let images, windowHeight;
 
   function init() {
     images = document.querySelectorAll(".project");
     windowHeight = window.innerHeight;
-    //console.log("windowHeight: " + windowHeight);
   }
   
   function imgPosition() {
@@ -101,14 +88,14 @@ function filter(event) {
 
   init();
   imgPosition();
-})();
+})(); */
 
 // draw footer canvas
 const fCanvas = document.getElementById("footerCanvas");
 
 fCanvas.width = innerWidth;
 fCanvas.height = fCanvas.width * 0.12;
-fc = fCanvas.getContext("2d");
+const fc = fCanvas.getContext("2d");
 
 // resize canvas if window resized
 addEventListener("resize", () => {
@@ -119,9 +106,9 @@ addEventListener("resize", () => {
 })
 
 function fcInit() {
-  let x0 = 0.2, y0 = 0;
+  let x0 = 0.2, y0 = 0,
       x1 = innerWidth / 2, y1 = 0.2,
-      x2 = 0.8, y2 = 0;
+      x2 = 0.8, y2 = 0,
       x3 = x1, y3 = fCanvas.height,
       fontSize = 50;
 
@@ -144,7 +131,6 @@ function fcInit() {
   fc.fill();
   fc.stroke();
 
-  
   fc.font = `${fontSize}px monospace`;
   fc.fillStyle = "#1C3240";
   fc.textAlign = "center";
