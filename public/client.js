@@ -7,6 +7,7 @@ portfolio.forEach( (x, i) => {
   // div wrapper parent element to apply css perspective
   let div = document.createElement("div");
   div.className = "projectDiv projectActive";
+  
   let img = document.createElement("img");
   img.className = "project";
   /* img.style.visibility = "hidden"; */
@@ -15,16 +16,49 @@ portfolio.forEach( (x, i) => {
   img.alt = x.alt;
   div.appendChild(img);
   projects.appendChild(div);
+  
   // overlay on hover
   let overlay = document.createElement("div");
   overlay.className = "overlay";
+  
   let overlayText = document.createElement("div");
   overlayText.className = "overlayText";
-  x.skills.forEach( skill => {
+  
+  let title = document.createElement("h3");
+  title.className = "projectTitle";
+  title.innerText = x.alt;
+  overlayText.appendChild(title);
+  
+  let about = document.createElement("p");
+  about.className = "projectAbout";
+  about.innerText = x.about;
+  overlayText.appendChild(about);
+
+  let buttonDiv = document.createElement("div");
+  buttonDiv.className = "buttonDiv";
+
+  let view = document.createElement("a");
+  view.className = "projectView";
+  view.href = x.view;
+  view.target = "_blank"
+  view.rel = "noopener noreferrer";
+  view.innerText = "View";
+  buttonDiv.appendChild(view);
+
+  let code = document.createElement("a");
+  code.className = "projectCode";
+  code.href = x.code;
+  code.target = "_blank";
+  code.rel = "noopener noreferrer";
+  code.innerText = "Code";
+  buttonDiv.appendChild(code);
+
+  overlayText.appendChild(buttonDiv);
+  /* x.skills.forEach( skill => {
     let p = document.createElement("p");
     p.innerText = skill;
     overlayText.appendChild(p);
-  });
+  }); */
   overlay.appendChild(overlayText);
   div.appendChild(overlay);
 });
