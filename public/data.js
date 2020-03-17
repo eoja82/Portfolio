@@ -4,7 +4,7 @@ const portfolio = [
     alt: "Minesweeper Game", 
     view: "https://codepen.io/EOJA/full/zYYmgpe",
     code: "https://github.com/eoja82/Mine-Sweeper",
-    about: "The classic computer game built with vanilla Javascript, HTML, and CSS",
+    about: "The classic computer game built with vanilla JavaScript, HTML, and CSS",
     skills: ["JavaScript", "HTML", "CSS"]
   },
   {
