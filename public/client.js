@@ -42,7 +42,10 @@ portfolio.forEach( (x, i) => {
   view.href = x.view;
   view.target = "_blank"
   view.rel = "noopener noreferrer";
-  view.innerText = "View";
+  view.innerText = "View ";
+  let viewIcon = document.createElement("i");
+  viewIcon.className = "fas fa-chevron-right";
+  view.appendChild(viewIcon);
   buttonDiv.appendChild(view);
 
   let code = document.createElement("a");
@@ -50,7 +53,10 @@ portfolio.forEach( (x, i) => {
   code.href = x.code;
   code.target = "_blank";
   code.rel = "noopener noreferrer";
-  code.innerText = "Code";
+  code.innerText = "Code ";
+  let codeIcon = document.createElement("i");
+  codeIcon.className = "fas fa-chevron-right";
+  code.appendChild(codeIcon);
   buttonDiv.appendChild(code);
 
   overlayText.appendChild(buttonDiv);
