@@ -69,5 +69,8 @@ const skillset = [
   "JavaScript", "React", "HTML", "CSS", "Node.js", "MongoDB", "Mongoose", "Express", "Python", "C", "SQL"
 ];
 
+const filters = [
+  "JavaScript", "React", "Node.js", "MongoDB", "D3.js", "All"
+];
 
-export { portfolio, skillset }
+export { portfolio, skillset, filters }
