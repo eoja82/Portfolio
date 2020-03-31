@@ -1,4 +1,4 @@
-import { portfolio, skillset } from "./data.js"
+import { portfolio, skillset, filters } from "./data.js"
 
 // add portfolio to DOM
 const projects = document.querySelector("#projects");
@@ -87,6 +87,19 @@ skillset.forEach( (x, i) => {
   skills.appendChild(button);
 });
 
+// add project filters to DOM
+const filterOptions = document.querySelector(".filterOptions");
+const filterUl = document.createElement("ul");
+filterUl.className = "filterBySkill";
+filterOptions.appendChild(filterUl);
+
+filters.forEach( x => {
+  let li = document.createElement("li");
+  li.className = "selectSkill";
+  li.innerText = x;
+  filterUl.appendChild(li);
+});
+
 // filter projects
 const selectSkill = document.querySelectorAll(".selectSkill");
 selectSkill.forEach( x => x.addEventListener("click", filter));
@@ -102,6 +115,12 @@ function filter(event) {
   });
 
   document.getElementById("filter").innerText = event.target.innerText;
+
+  let filterOptions = document.querySelector(".filterOptions");
+  console.log(filterOptions);
+  if (filterOptions.style.visibility == "visible") {
+    filterOptions.style.visibility = "hidden";
+  }
 }
 
 // fade in and flip images on scroll
