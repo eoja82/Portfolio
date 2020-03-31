@@ -6,6 +6,7 @@
   <title>Erik Oja - Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="./public/style.css">
 </head>
 <body>
@@ -29,7 +30,26 @@
       </h2>
       <div id="skills"></div>
     </section>
-    <section id="projects"></section>
+    <section id="projectSection">
+      <h2 id="projectsH2">
+        PROJECTS
+      </h2>
+      <div id="filterContainer">
+        <div class="filterBy">Filter by<span id="filter"> All</span><i class="fas fa-chevron-down filterArrow"></i>
+        </div>
+        <div class="filterOptions">
+          <ul class="filterBySkill">
+            <li class="selectSkill">All</li>
+            <li class="selectSkill">JavaScript</li>
+            <li class="selectSkill">React</li>
+            <li class="selectSkill">Node.js</li>
+            <li class="selectSkill">MongoDB</li>
+            <li class="selectSkill">D3.js</li>
+          </ul>
+        </div>
+      </div>
+      <div id="projects"></div>
+    </section>
   </main>
   <footer>
     <div id="footerSpacer"></div>

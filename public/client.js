@@ -29,10 +29,21 @@ portfolio.forEach( (x, i) => {
   title.innerText = x.alt;
   overlayText.appendChild(title);
   
-  let about = document.createElement("p");
+  /* let about = document.createElement("p");
   about.className = "projectAbout";
   about.innerText = x.about;
-  overlayText.appendChild(about);
+  overlayText.appendChild(about); */
+
+  let projectSkillList = document.createElement("div");
+  projectSkillList.className = "projectSkillList";
+  x.skills.forEach( skill => {
+    let p = document.createElement("p");
+    p.className = "projectSkill";
+    p.innerText = skill;
+    projectSkillList.appendChild(p);
+    //overlayText.appendChild(p);
+  });
+  overlayText.appendChild(projectSkillList);
 
   let buttonDiv = document.createElement("div");
   buttonDiv.className = "buttonDiv";
@@ -42,7 +53,7 @@ portfolio.forEach( (x, i) => {
   view.href = x.view;
   view.target = "_blank"
   view.rel = "noopener noreferrer";
-  view.innerText = "View ";
+  view.innerText = "VIEW  ";
   let viewIcon = document.createElement("i");
   viewIcon.className = "fas fa-chevron-right";
   view.appendChild(viewIcon);
@@ -53,18 +64,13 @@ portfolio.forEach( (x, i) => {
   code.href = x.code;
   code.target = "_blank";
   code.rel = "noopener noreferrer";
-  code.innerText = "Code ";
+  code.innerText = "CODE  ";
   let codeIcon = document.createElement("i");
   codeIcon.className = "fas fa-chevron-right";
   code.appendChild(codeIcon);
   buttonDiv.appendChild(code);
-
   overlayText.appendChild(buttonDiv);
-  /* x.skills.forEach( skill => {
-    let p = document.createElement("p");
-    p.innerText = skill;
-    overlayText.appendChild(p);
-  }); */
+  
   overlay.appendChild(overlayText);
   div.appendChild(overlay);
 });
@@ -81,23 +87,21 @@ skillset.forEach( (x, i) => {
   skills.appendChild(button);
 });
 
+// filter projects
+const selectSkill = document.querySelectorAll(".selectSkill");
+selectSkill.forEach( x => x.addEventListener("click", filter));
+
 function filter(event) {
   let projects = document.querySelectorAll(".projectDiv");
-  let buttons = document.querySelectorAll(".skillBtn");
   projects.forEach( (x, i) => {
-    if (portfolio[i].skills.includes(event.target.innerText) || event.target.innerText == "All Skills") {
+    if (portfolio[i].skills.includes(event.target.innerText) || event.target.innerText == "All") {
       x.classList.add("projectActive");
     } else {
       x.classList.remove("projectActive");
     }
   });
-  buttons.forEach( x => {
-    if (event.target.id === x.id) {
-      x.classList.add("activeBtn");
-    } else {
-      x.classList.remove("activeBtn");
-    }
-  });
+
+  document.getElementById("filter").innerText = event.target.innerText;
 }
 
 // fade in and flip images on scroll
@@ -165,14 +169,14 @@ function fcInit() {
   fc.lineTo(innerWidth * x2, y2);
   fc.lineTo(x3, y3);
   fc.lineTo(innerWidth * x0, y0);
-  fc.fillStyle = "#8AABBF";
-  fc.strokeStyle = "#1C3240";
+  fc.fillStyle = "rgb(34, 170, 182)";//"#8AABBF";
+  fc.strokeStyle = "rgb(34, 170, 182)" //"#1C3240";
   fc.lineWidth = 2;
   fc.fill();
   fc.stroke();
 
-  fc.font = `${fontSize}px monospace`;
-  fc.fillStyle = "#1C3240";
+  fc.font = `${fontSize}px helvetica`;
+  fc.fillStyle = "rgb(25, 25, 31, .9)"; //"#1C3240";
   fc.textAlign = "center";
   fc.fillText("Contact", innerWidth / 2, fCanvas.height * 0.6);
 }

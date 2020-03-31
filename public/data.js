@@ -13,7 +13,7 @@ const portfolio = [
     view: "https://fccstockpricecheck.glitch.me/",
     code: "https://glitch.com/edit/#!/fccstockpricecheck?path=routes/api.js:6:1",
     about: "A full stack app built with JavaScript, Node.js, Mongoose, Express and MongoDB that gets current stock prices from an API.  The app also includes Chai assertion testing and Helmet information security.",
-    skills: ["JavaScript", "HTML", "CSS", "Mongoose", "Node.js", "Express", "Chai", "Helmet", "MongoDB"]
+    skills: ["JavaScript", "Node.js", "Express", "Mongoose", "MongoDB", "Chai"]
   },
   {
     src: "./public/img/issueTracker.png", 
@@ -21,7 +21,7 @@ const portfolio = [
     view: "https://fcc-track-issues.glitch.me/",
     code: "https://glitch.com/edit/#!/fcc-track-issues?path=routes/api.js:1:0",
     about: "A full stack app built with JavaScript, Node.js, Mongoose, Express and MongoDB that can track issues for projects.  The app also includes Chai assertion testing.",
-    skills: ["JavaScript", "HTML", "CSS", "Mongoose", "Node.js", "Express", "Chai", "Helmet", "MongoDB"]
+    skills: ["JavaScript","Node.js", "Express", "Mongoose",  "Chai", "Helmet", "MongoDB"]
   },
   {
     src: "./public/img/chatRoom.png", 
@@ -37,7 +37,7 @@ const portfolio = [
     view: "https://codepen.io/EOJA/full/OePXNb",
     code: "https://github.com/eoja82/fcc-Data-Visualization-Projects/tree/master/ChoroplethMap",
     about: 'A D3.js data visualization project.  Follow the "View" link to see more D3.js projects.',
-    skills: ["JavaScript", "HTML", "CSS", "D3.js"]
+    skills: ["JavaScript", "D3.js", "HTML", "CSS"]
   },
   {
     src: "./public/img/pomodoroClock.png", 
