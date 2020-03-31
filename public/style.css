@@ -125,7 +125,7 @@ nav {
 .filterBy {
   border: 2px solid var(--c-green);
   padding: 1rem;
-  margin: 0 0 3rem;
+  margin: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -133,7 +133,7 @@ nav {
   background-color: transparent;
   transition: .3s;
 }
-.filterBy:hover, .filterOptions:hover::before {
+.filterBy:hover {
   background-color: var(--c-green);
 }
 #filter {
@@ -165,7 +165,7 @@ nav {
 #filterContainer:hover .filterOptions {
   height: calc(28.6px * 6);
   /* display: block; */
-  visibility: unset;
+  visibility: visible;
 }
 .filterBySkill {
   margin: 0;
@@ -187,7 +187,7 @@ nav {
   flex-direction: row;
   flex-wrap: wrap;
   max-width: 95%;
-  margin: 0 auto;
+  margin: 3rem auto 0;
   padding-bottom: 3.5rem;
   justify-content: center;
 }
