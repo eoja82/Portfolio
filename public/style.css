@@ -59,7 +59,7 @@ nav {
 }
 #skillsH2, #projectsH2 {
   font-family: "Roboto", Helvetica, sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 4rem;
   text-align: center;
   color: rgb(56, 56, 56);
@@ -122,7 +122,7 @@ nav {
   margin: 0 auto;
   justify-content: center;
 }
-.filterBy {
+#filterBy {
   border: 2px solid var(--c-green);
   padding: 1rem;
   margin: 0;
@@ -133,8 +133,9 @@ nav {
   background-color: transparent;
   transition: .3s;
 }
-.filterBy:hover {
+#filterBy:hover {
   background-color: var(--c-green);
+  cursor: pointer;
 }
 #filter {
   font-weight: bolder;
@@ -148,7 +149,6 @@ nav {
 .filterOptions {
   background-color: rgb(250, 250, 250);
   text-align: center;
-  /* display: none; */
   border: 2px solid var(--c-green);
   border-top: none;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -156,17 +156,10 @@ nav {
   width: inherit;
   position: absolute;
   top: 55px;  /*55*/
-  /* changes */
-  height: 0;
   transition: .4s;
   overflow: hidden;
-  visibility: hidden;
 }
-#filterContainer:hover .filterOptions {
-  height: calc(28.6px * 6);
-  /* display: block; */
-  visibility: visible;
-}
+
 .filterBySkill {
   margin: 0;
   padding: 0;

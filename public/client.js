@@ -89,6 +89,9 @@ skillset.forEach( (x, i) => {
 
 // add project filters to DOM
 const filterOptions = document.querySelector(".filterOptions");
+filterOptions.style.visibility = "hidden";
+filterOptions.style.height = 0;
+
 const filterUl = document.createElement("ul");
 filterUl.className = "filterBySkill";
 filterOptions.appendChild(filterUl);
@@ -99,6 +102,49 @@ filters.forEach( x => {
   li.innerText = x;
   filterUl.appendChild(li);
 });
+
+// hide / display filter options on mouse over/out
+const filterContainer = document.querySelector("#filterContainer");
+/* filterContainer.addEventListener("mouseover", displayFilterOptions);
+filterContainer.addEventListener("mouseout", hideFilterOptions);
+function displayFilterOptions() {
+  filterOptions.style.visibility = "visible";
+  filterOptions.style.height = (28.6 * filters.length) + "px";
+}
+function hideFilterOptions() {
+  filterOptions.style.visibility = "hidden";
+  filterOptions.style.height = 0;
+} */
+
+// hide / show filter options on click
+const filterBy = document.querySelector("#filterBy");
+filterBy.addEventListener("click", showHideFilterOptions);
+function showHideFilterOptions() {
+  if (filterOptions.style.visibility == "hidden" && filterOptions.style.height == "0px") {
+    showFilter();
+  } else {
+    hideFilter();
+  }
+}
+
+function closeFilterOptions(event) {
+  const classesAndIds = ["filterBy", "filter", "selectSkill", "fas fa-chevron-down filterArrow"];
+  if (classesAndIds.includes(event.target.id) || classesAndIds.includes(event.target.className)) {
+    return;
+  } else {
+    hideFilter();
+  }
+}
+function showFilter() {
+  filterOptions.style.visibility = "visible";
+  filterOptions.style.height = (28.6 * filters.length) + "px";
+  document.addEventListener("click", closeFilterOptions, true);
+}
+function hideFilter() {
+  filterOptions.style.visibility = "hidden";
+  filterOptions.style.height = 0;
+  document.removeEventListener("click", closeFilterOptions, true);
+}
 
 // filter projects
 const selectSkill = document.querySelectorAll(".selectSkill");
@@ -116,11 +162,7 @@ function filter(event) {
 
   document.getElementById("filter").innerText = event.target.innerText;
 
-  let filterOptions = document.querySelector(".filterOptions");
-  console.log(filterOptions);
-  if (filterOptions.style.visibility == "visible") {
-    filterOptions.style.visibility = "hidden";
-  }
+  hideFilter();
 }
 
 // fade in and flip images on scroll
