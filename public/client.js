@@ -1,5 +1,39 @@
 import { portfolio, skillset, filters } from "./data.js"
 
+// draw transition canvas
+function drawTransitions() {
+  const transitionCanvas = document.querySelectorAll(".transitionCanvas");
+  let fillColor;
+
+  transitionCanvas.forEach( x => {
+    x.width = innerWidth;
+    x.height = x.width * .09;
+    
+    if (x.className == "transitionCanvas intro") {
+      fillColor = "rgb(25, 25, 31, .9)";
+    } else if (x.className == "transitionCanvas about") {
+      fillColor = "white";
+      x.style.backgroundColor = "rgb(245, 245, 245)";
+    } else {
+      fillColor = "transparent";
+    }
+
+    const tc = x.getContext("2d");
+
+    function tcInit() {
+      tc.beginPath();
+      tc.moveTo(0, 0);
+      tc.lineTo(x.width, 0);
+      tc.lineTo(x.width / 2, x.height);
+      tc.lineTo(0, 0);
+      tc.fillStyle = fillColor;
+      tc.fill();
+    }
+    tcInit();
+  });
+}
+drawTransitions();
+
 // add portfolio to DOM
 const projects = document.querySelector("#projects");
 
@@ -28,13 +62,8 @@ portfolio.forEach( (x, i) => {
   title.className = "projectTitle";
   title.innerText = x.alt;
   overlayText.appendChild(title);
-  
-  /* let about = document.createElement("p");
-  about.className = "projectAbout";
-  about.innerText = x.about;
-  overlayText.appendChild(about); */
 
-  let projectSkillList = document.createElement("div");
+  const projectSkillList = document.createElement("div");
   projectSkillList.className = "projectSkillList";
   x.skills.forEach( skill => {
     let p = document.createElement("p");
@@ -75,18 +104,6 @@ portfolio.forEach( (x, i) => {
   div.appendChild(overlay);
 });
 
-// add skills to DOM
-const skills = document.querySelector("#skills");
-
-skillset.forEach( (x, i) => {
-  let button = document.createElement("button");
-  button.className = "skillBtn";
-  button.innerText = x;
-  button.id = `skill${i}`;
-  button.addEventListener("click", filter);
-  skills.appendChild(button);
-});
-
 // add project filters to DOM
 const filterOptions = document.querySelector(".filterOptions");
 filterOptions.style.visibility = "hidden";
@@ -102,19 +119,6 @@ filters.forEach( x => {
   li.innerText = x;
   filterUl.appendChild(li);
 });
-
-// hide / display filter options on mouse over/out
-const filterContainer = document.querySelector("#filterContainer");
-/* filterContainer.addEventListener("mouseover", displayFilterOptions);
-filterContainer.addEventListener("mouseout", hideFilterOptions);
-function displayFilterOptions() {
-  filterOptions.style.visibility = "visible";
-  filterOptions.style.height = (28.6 * filters.length) + "px";
-}
-function hideFilterOptions() {
-  filterOptions.style.visibility = "hidden";
-  filterOptions.style.height = 0;
-} */
 
 // hide / show filter options on click
 const filterBy = document.querySelector("#filterBy");
@@ -204,6 +208,7 @@ const fc = fCanvas.getContext("2d");
 
 // resize canvas if window resized
 addEventListener("resize", () => {
+  drawTransitions();
   fCanvas.width = window.innerWidth;
   fCanvas.height = fCanvas.width * 0.12;
   console.log(fCanvas.width, fCanvas.height);
