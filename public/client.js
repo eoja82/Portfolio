@@ -10,7 +10,8 @@ function drawTransitions() {
     x.height = x.width * .09;
     
     if (x.className == "transitionCanvas intro") {
-      fillColor = "rgb(25, 25, 31, .9)";
+      fillColor = "rgb(25, 25, 31)";
+      x.style.backgroundColor = "white";
     } else if (x.className == "transitionCanvas about") {
       fillColor = "white";
       x.style.backgroundColor = "rgb(245, 245, 245)";

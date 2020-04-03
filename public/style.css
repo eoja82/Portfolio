@@ -3,7 +3,7 @@
   --c-green: rgb(34, 170, 182);
   --c-yellow: rgb(252, 240, 59);
   --c-orange: rgb(255, 63, 20);
-  --c-gray: rgb(25, 25, 31, .9);
+  --c-gray: rgb(25, 25, 31);
 }
 * {
   box-sizing: border-box;
@@ -12,36 +12,60 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
+  background-color: var(--c-gray);
+}
+html {
+  scroll-behavior: smooth;
 }
 
 /* navigation */
+/* nav {
+  background-color: var(--c-gray);
+} */
 nav {
-  background-color: rgb(235, 235, 235);
-  color: var(--c-orange);
+  background-color: var(--c-gray);
+}
+#navDiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 75%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+#navDiv a {
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-decoration: none;
+  color: rgb(168, 168, 168);
+  padding: .7rem 0;
 }
 
 .transitionCanvas {
   display: block;
 }
+
 /* intro section */
 #intro {
   background-color: var(--c-gray);
   width: 100%;
-  height: calc(100vh - 19px);
+  height: calc(100vh - 45.4px);
   /* margin-top: -19px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 #hello {
   text-align: center;
-  color: rgb(168, 168, 168);
+  color: rgb(242, 242, 242);
 }
 .fadeInDown {
   font-weight: 300;
   font-size: 2rem;
   animation-duration: 1.5s;
+  margin-top: 0;
 }
 .fadeInUp {
   font-weight: 300;
@@ -63,6 +87,7 @@ nav {
 #aboutSection {
   display: flex;
   flex-direction: column;
+  background-color: white;
 }
 #aboutH2, #projectsH2 {
   font-weight: 300;
