@@ -1,6 +1,30 @@
 import { portfolio, skillset, filters } from "./data.js"
 
-// draw transition canvas
+// smooth scroll nav links
+/* const navLinks = document.querySelectorAll(".navLink");
+navLinks.forEach( x => {
+  x.addEventListener("click", smoothScroll);
+});
+
+function smoothScroll(event) {
+  event.preventDefault();
+  const element = document.getElementById(event.target.dataset.navLink);
+  element.scrollIntoView({behavior: "smooth", block: "start"});
+} */
+
+// use return key to navigate page links
+const navLinks = document.querySelectorAll(".navLink");
+navLinks.forEach( x => {
+  x.addEventListener("keydown", navKeydown)
+});
+
+function navKeydown(event) {
+  if (event.keyCode == 13) {
+    location.href = event.target.dataset.navLink;
+  }
+}
+
+// draw transitions between sections of page
 function drawTransitions() {
   const transitionCanvas = document.querySelectorAll(".transitionCanvas");
   let fillColor;
@@ -11,14 +35,18 @@ function drawTransitions() {
     
     if (x.className == "transitionCanvas intro") {
       fillColor = "rgb(25, 25, 31)";
-      x.style.backgroundColor = "white";
+      x.style.backgroundColor = "rgb(64, 66, 68)";
     } else if (x.className == "transitionCanvas about") {
-      fillColor = "white";
-      x.style.backgroundColor = "rgb(245, 245, 245)";
+      fillColor = "rgb(64, 66, 68)";
+      x.style.backgroundColor = "rgb(25, 25, 31)";
+    } else if (x.className == "transitionCanvas projects") {
+      fillColor = "rgb(25, 25, 31)"
+      x.style.backgroundColor = "rgb(64, 66, 68)"
     } else {
       fillColor = "transparent";
+      x.style.backgroundColor = "transparent";
     }
-
+    
     const tc = x.getContext("2d");
 
     function tcInit() {
@@ -34,6 +62,10 @@ function drawTransitions() {
   });
 }
 drawTransitions();
+
+addEventListener("resize", () => {
+  drawTransitions();
+});
 
 // add portfolio to DOM
 const projects = document.querySelector("#projects");
@@ -123,7 +155,9 @@ filters.forEach( x => {
 
 // hide / show filter options on click
 const filterBy = document.querySelector("#filterBy");
+const filterArrow = document.querySelector(".filterArrow");
 filterBy.addEventListener("click", showHideFilterOptions);
+
 function showHideFilterOptions() {
   if (filterOptions.style.visibility == "hidden" && filterOptions.style.height == "0px") {
     showFilter();
@@ -131,37 +165,62 @@ function showHideFilterOptions() {
     hideFilter();
   }
 }
-
+function showFilter() {
+  filterArrow.classList.replace("fa-chevron-down", "fa-chevron-up");
+  filterOptions.style.visibility = "visible";
+  filterOptions.style.height = (31.8 * filters.length) + "px";
+  document.addEventListener("click", closeFilterOptions, true);
+}
+function hideFilter() {
+  filterArrow.classList.replace("fa-chevron-up", "fa-chevron-down");
+  filterOptions.style.visibility = "hidden";
+  filterOptions.style.height = 0;
+  document.removeEventListener("click", closeFilterOptions, true);
+}
 function closeFilterOptions(event) {
-  const classesAndIds = ["filterBy", "filter", "selectSkill", "fas fa-chevron-down filterArrow"];
+  const classesAndIds = ["filterBy", "filter", "selectSkill", "fas fa-chevron-down filterArrow", "fas fa-chevron-up filterArrow"];
   if (classesAndIds.includes(event.target.id) || classesAndIds.includes(event.target.className)) {
     return;
   } else {
     hideFilter();
   }
 }
-function showFilter() {
-  filterOptions.style.visibility = "visible";
-  filterOptions.style.height = (28.6 * filters.length) + "px";
-  document.addEventListener("click", closeFilterOptions, true);
-}
-function hideFilter() {
-  filterOptions.style.visibility = "hidden";
-  filterOptions.style.height = 0;
-  document.removeEventListener("click", closeFilterOptions, true);
-}
 
 // filter projects
 const selectSkill = document.querySelectorAll(".selectSkill");
 selectSkill.forEach( x => x.addEventListener("click", filter));
+const project = document.querySelectorAll(".projectDiv");
 
 function filter(event) {
-  let projects = document.querySelectorAll(".projectDiv");
-  projects.forEach( (x, i) => {
+  project.forEach( (x, i) => {
+    x.classList.replace("zoomIn", "zoomOut");
+    x.classList.remove("projectActive");
+    
+  /* }); */
+  /* let projects = document.querySelectorAll(".projectDiv"); */
+  /* project.forEach( (x, i) => {
     if (portfolio[i].skills.includes(event.target.innerText) || event.target.innerText == "All") {
+      
+      x.classList.replace("zoomOutDown", "zoomInUp");
+
       x.classList.add("projectActive");
     } else {
       x.classList.remove("projectActive");
+    }
+  }); */
+
+    setTimeout(filtered(event), 1000);
+    function filtered(event) {
+      //console.log("in timeout")
+      //console.log(event.target.innerText)
+      x.classList.remove("zoomOut");
+      if (portfolio[i].skills.includes(event.target.innerText) || event.target.innerText == "All") {
+        //console.log("in if timeout")
+        x.classList.add("zoomIn");
+        x.classList.add("projectActive");
+      } else {
+        x.classList.remove("projectActive");
+      }
     }
   });
 
@@ -170,27 +229,43 @@ function filter(event) {
   hideFilter();
 }
 
-// fade in and flip images on scroll
-/* (function() {
+// fade in project images on scroll
+(function() {
   let images, windowHeight;
-
   function init() {
-    images = document.querySelectorAll(".project");
+    /* images = document.querySelectorAll(".project"); */
     windowHeight = window.innerHeight;
   }
   
-  function imgPosition() {
+  // section header and header bar
+  const sectionHeader = document.querySelectorAll(".sectionHeader");
+  const headerBarContainer = document.querySelectorAll(".headerBarContainer");
+
+  function headerPosition() {
     let i = 0;
-    for (i; i < images.length; i++) {
-      let positionFromTop = images[i].getBoundingClientRect().top;
-      if (positionFromTop + 5 - windowHeight <= 0) {
-        images[i].classList.add("animated", "slideInUp")
-        images[i].style.visibility = "visible";
-      } else {
-        images[i].className = "project";
-        images[i].style.visibility = "hidden";
+    for (i; i < sectionHeader.length; i++) {
+      let positionFromTop = sectionHeader[i].getBoundingClientRect().top;
+      if (positionFromTop - windowHeight <= 0) {
+        sectionHeader[i].classList.add("animated", "fadeInRight");
+        sectionHeader[i].style.visibility = "visible";
+        headerBarContainer[i].classList.add("animated", "fadeInRight");
+        headerBarContainer[i].style.visibility = "visible";
       }
     }
+  }
+
+  window.addEventListener("scroll", headerPosition);
+
+  // projects
+  function imgPosition() {
+    let i = 0;
+    for (i; i < project.length; i++) {
+      let positionFromTop = project[i].getBoundingClientRect().top;
+      if (positionFromTop - windowHeight <= 0) {
+        project[i].classList.add("animated", "zoomIn")
+        project[i].style.visibility = "visible";
+      }  
+    }    
   } 
 
   window.addEventListener("scroll", imgPosition);
@@ -198,25 +273,25 @@ function filter(event) {
 
   init();
   imgPosition();
-})(); */
+})();
 
 // draw footer canvas
-const fCanvas = document.getElementById("footerCanvas");
+/* const fCanvas = document.getElementById("footerCanvas");
 
 fCanvas.width = innerWidth;
 fCanvas.height = fCanvas.width * 0.12;
-const fc = fCanvas.getContext("2d");
+const fc = fCanvas.getContext("2d"); */
 
 // resize canvas if window resized
-addEventListener("resize", () => {
+/* addEventListener("resize", () => {
   drawTransitions();
   fCanvas.width = window.innerWidth;
   fCanvas.height = fCanvas.width * 0.12;
   console.log(fCanvas.width, fCanvas.height);
   fcInit();
-})
+}); */
 
-function fcInit() {
+/* function fcInit() {
   let x0 = 0.2, y0 = 0,
       x1 = innerWidth / 2, y1 = 0.2,
       x2 = 0.8, y2 = 0,
@@ -247,4 +322,4 @@ function fcInit() {
   fc.textAlign = "center";
   fc.fillText("Contact", innerWidth / 2, fCanvas.height * 0.6);
 }
-fcInit();
+fcInit(); */

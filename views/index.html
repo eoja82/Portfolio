@@ -12,9 +12,15 @@
 <body>
   <nav>
     <div id="navDiv" class="animated fadeIn delay-3s">
-      <a href="#aboutSection">About</a>
-      <a href="#projectSection">Projects</a>
-      <a href="#contactSection">Contact</a>
+      <button class="navLink" data-nav-link="#aboutSection">
+        <a href="#aboutSection">About</a>
+      </button>
+      <button class="navLink" data-nav-link="#projectSection">
+        <a href="#projectSection" >Projects</a>
+      </button>
+      <button class="navLink" data-nav-link="#contactSection">
+        <a href="#contactSection">Contact</a>
+      </button>
     </div>
   </nav>
   <main>
@@ -30,8 +36,12 @@
     </section>
     <canvas class="transitionCanvas intro"></canvas>
     <section id="aboutSection">
-      <h2 id="aboutH2">ABOUT</h2>
-      <div class="headerBar"></div>
+      <div class="headerContainer">
+        <h2 class="sectionHeader" style="visibility: hidden;">ABOUT</h2>
+        <div class="headerBarContainer" style="visibility: hidden;">
+          <div class="headerBar"></div>
+        </div>
+      </div>
       <div id="skills">
         <div id="languages">
           <i class="fas fa-code skillsIcon"></i>
@@ -72,19 +82,30 @@
     </section>
     <canvas class="transitionCanvas about"></canvas>
     <section id="projectSection">
-      <h2 id="projectsH2">PROJECTS</h2>
-      <div class="headerBar"></div>
-      <div id="filterContainer">
-        <div id="filterBy">Filter by<span id="filter"> All</span><i class="fas fa-chevron-down filterArrow"></i>
+      <div class="headerContainer">
+        <h2 class="sectionHeader">PROJECTS</h2>
+        <div class="headerBarContainer">
+          <div class="headerBar"></div>
         </div>
+      </div>
+      <div id="filterContainer">
+        <button id="filterBy">Filter by<span id="filter"> All</span><i class="fas fa-chevron-down filterArrow"></i>
+        </button>
         <div class="filterOptions"></div>
       </div>
       <div id="projects"></div>
     </section>
   </main>
+  <canvas class="transitionCanvas projects"></canvas>
   <footer id="contactSection">
-    <div id="footerSpacer"></div>
-    <canvas id="footerCanvas"></canvas>
+    <!-- <div id="footerSpacer"></div> -->
+    <!-- <canvas id="footerCanvas"></canvas> -->
+    <div class="headerContainer">
+      <h2 class="sectionHeader">CONTACT</h2>
+      <div class="headerBarContainer">
+        <div class="headerBar"></div>
+      </div>
+    </div>
     <div id="contact">
       <div class="contactIcon">
         <a href="mailto:ed_oja@hotmail.com" target="_blank" rel="noopener noreferrer"><i class="far fa-envelope"></i></a>

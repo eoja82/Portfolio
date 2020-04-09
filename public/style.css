@@ -33,14 +33,22 @@ nav {
   margin: 0 auto;
   justify-content: space-between;
 }
+#navDiv button {
+  background-color: transparent;
+  border: none;
+  padding: .7rem 0;
+}
+#navDiv button:focus {
+  background-color: rgb(70, 70, 70);
+}
 #navDiv a {
   font-size: 1.2rem;
   font-weight: 300;
   text-decoration: none;
   color: rgb(168, 168, 168);
-  padding: .7rem 0;
 }
 
+/* section transition canvas */
 .transitionCanvas {
   display: block;
 }
@@ -87,20 +95,36 @@ nav {
 #aboutSection {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: rgb(64, 66, 68);
 }
-#aboutH2, #projectsH2 {
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+}
+.sectionHeader {
   font-weight: 300;
   font-size: 3.5rem;
   text-align: center;
   margin: 0;
   padding: 2.7rem 0 0;
+  /* color: rgb(172, 172, 172); */
+  color: var(--c-orange);
+}
+.headerBarContainer {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+  animation-delay: 0.3s;
 }
 .headerBar {
   width: 80px;
   height: 4px;
-  background-color: rgb(122, 122, 122);
-  margin: .5rem auto 2.3rem;
+  background-color: var(--c-green);
+  /* margin: .5rem 0 2.3rem; */
 }
 #skills {
   display: flex;
@@ -125,13 +149,13 @@ nav {
 }
 .skillsIcon {
   font-size: 2rem;
-  /* color: rgb(142, 142, 142); */
   color: var(--c-green);
 }
-/* .skillList {
+.skillList {
+  color: rgb(200, 198, 198);
   display: flex;
   flex-direction: column;
-} */
+}
 .skillList {
   font-size: 1.2rem;
   font-weight: 300;
@@ -144,12 +168,13 @@ nav {
 
 /* project section */
 #projectSection {
-  background-color: rgb(245, 245, 245);
-  display: flex;
+  background-color: var(--c-gray);
   flex-direction: column;
   width: 100%;
 }
-
+/* #projectSection .sectionHeader {
+  color: rgb(172, 172, 172);
+} */
 /* hover filter */
 #filterContainer {
   position: relative;
@@ -158,10 +183,16 @@ nav {
   width: 200px;
   margin: 0 auto;
   justify-content: center;
+  /* color: white; */
+  /* background-color: rgb(240, 240, 240); */
 }
 #filterBy {
-  border: 2px solid var(--c-green);
-  padding: 1rem;
+  /* border: 2px solid var(--c-blue); */
+  border: none;
+  color: rgb(200, 198, 198);
+  font-size: 1.2rem;
+  font-weight: 100;
+  padding: 1rem 0;
   margin: 0;
   display: flex;
   flex-direction: row;
@@ -171,32 +202,36 @@ nav {
   transition: .3s;
 }
 #filterBy:hover {
-  background-color: var(--c-green);
+  /* background-color: var(--c-green);
+  color: rgb(20, 20, 20); */
   cursor: pointer;
 }
 #filter {
-  font-weight: bolder;
+  color: var(--c-green);
+  font-weight: 400;
   padding: 0 .4rem 0 .3rem;
   margin: 0;
 }
+/* #filterBy:hover #filter {
+  color: var(--c-green);
+} */
 .filterArrow {
-  color: rgb(82, 82, 82);
+  color: rgb(200, 198, 198);
   font-size: .8rem;
 }
 .filterOptions {
   background-color: rgb(250, 250, 250);
   text-align: center;
   border: 2px solid var(--c-green);
-  border-top: none;
+  /* border-top: none; */
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   width: inherit;
   position: absolute;
-  top: 55px;  /*55*/
+  top: 51px;  /*55*/
   transition: .4s;
   overflow: hidden;
 }
-
 .filterBySkill {
   margin: 0;
   padding: 0;
@@ -204,7 +239,7 @@ nav {
 .selectSkill {
   background-color: inherit;
   list-style-type: none;
-  padding: .3rem .5rem;
+  padding: .4rem .5rem;
   cursor: pointer;
   transition: .3s;
 }
@@ -212,12 +247,13 @@ nav {
   background-color: var(--c-green);
 }
 
+
 #projects {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   max-width: 95%;
-  margin: 3rem auto 0;
+  margin: 3rem auto;
   padding-bottom: 3.5rem;
   justify-content: center;
 }
@@ -241,7 +277,7 @@ nav {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(63, 63, 63, .9);
+  background-color: rgba(45, 45, 45, .9);
   overflow: hidden;
   width: 100%;
   height: 0;
@@ -266,7 +302,7 @@ nav {
   font-size: 1.9rem;
   font-weight: 700;
   margin: .75rem 0;
-  color: var(--c-green);
+  color: var(--c-blue);
 }
 .projectAbout {
   margin: 0 0 1.75rem;
@@ -294,14 +330,14 @@ nav {
   font-size: 1.1rem;
   color: white;
   text-decoration: none;
-  border: 2px solid var(--c-green);
+  border: 2px solid var(--c-blue);
   font-weight: 300;
   margin: 0 .3rem;
   padding: .5rem 1.2rem;
   transition: .3s;
 }
 .projectView:hover, .projectCode:hover {
-  background-color: var(--c-green);
+  background-color: var(--c-blue);
 }
 .fa-chevron-right {
   font-size: 1rem;
@@ -309,7 +345,7 @@ nav {
 } 
 
 /* footer css */
-#footerSpacer {
+/* #footerSpacer {
   width: 100%;
   height: 40px;
   background-color: var(--c-gray);
@@ -317,17 +353,30 @@ nav {
 #footerCanvas {
   display: block;
   background-color: var(--c-gray);
+} */
+footer {
+  background-color: rgb(64, 66, 68);
 }
+/* footer h2 {
+  color: var(--c-blue);
+} */
+/* footer .headerBar {
+  background-color: rgb(72, 72, 72);
+} */
 #contact {
   font-size: 2.5rem;
-  color: var(--c-green);
+  /* color: var(--c-green); */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
   height: 200px;
-  background-color: var(--c-gray);
+}
+.contactIcon {
+  /* color: var(--c-green); */
+  /* border-radius: 50%;
+  border: 2px solid rgb(138, 138, 138); */
 }
 .contactIcon a {
   width: 65px;
@@ -336,19 +385,26 @@ nav {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  /* background-color: var(--c-blue); */
   text-decoration: none;
   border-radius: 50%;
-  border: 2px solid var(--c-green);
+  border: 2px solid;
+  /* border-color: rgb(172, 172, 172); */
+  border-color: var(--c-blue);
+  background-color: transparent;
+  /* color: rgb(172, 172, 172); */
+  color: var(--c-blue);
+  transition: .3s;
 }
-.contactIcon i {
-  color: var(--c-green);
+
+.contactIcon:hover a {
+  border-color: var(--c-blue);
+  background-color: var(--c-blue);
+  color: rgb(64, 66, 68);
 }
 footer p {
   margin: 0;
   padding: 16px 0;
   font-weight: 100;
   text-align: center;
-  background-color: var(--c-gray);
-  color: rgb(138, 138, 138);
+  color: rgb(138, 138,138);
 }
