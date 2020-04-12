@@ -28,8 +28,6 @@ nav {
 }
 #navDiv {
   display: flex;
-  /* flex-direction: row;
-  flex-wrap: nowrap; */
   width: 75%;
   margin: 0 auto;
   justify-content: space-between;
@@ -69,7 +67,6 @@ main {
   background-color: var(--c-gray);
   width: 100%;
   height: calc(100vh - 45.4px);
-  /* margin-top: -19px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,12 +104,14 @@ main {
   display: flex;
   flex-direction: column;
   background-color: rgb(64, 66, 68);
+  min-height: 100vh;
 }
 .headerContainer {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: auto;
+  margin: 0 auto 1.5rem;
+  padding-top: 3rem;
   justify-content: center;
 }
 .sectionHeader {
@@ -121,7 +120,6 @@ main {
   text-align: center;
   margin: 0;
   padding: 2.7rem 0 0;
-  /* color: rgb(172, 172, 172); */
   color: var(--c-orange);
 }
 .headerBarContainer {
@@ -135,14 +133,13 @@ main {
   width: 80px;
   height: 4px;
   background-color: var(--c-green);
-  /* margin: .5rem 0 2.3rem; */
 }
 #skills {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 80%;
-  margin: 3rem auto;
+  margin: 2rem auto;
   justify-content: space-evenly;
 }
 #languages {
@@ -160,7 +157,6 @@ main {
   text-align: center;
   width: 250px;
   padding: 2rem;
-  /* background-color: rgb(34, 34, 34); */
 }
 .skillH3 {
   font-size: 1.9rem;
@@ -185,29 +181,25 @@ main {
   line-height: 1.8rem;
 }
 
-
 /* project section */
 #projectSection {
   background-color: var(--c-gray);
   flex-direction: column;
   width: 100%;
+  min-height: 100vh;
 }
-/* #projectSection .sectionHeader {
-  color: rgb(172, 172, 172);
-} */
+
 /* hover filter */
 #filterContainer {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 200px;
+  width: 100%;
   margin: 0 auto;
   justify-content: center;
-  /* color: white; */
-  /* background-color: rgb(240, 240, 240); */
+  animation-delay: .6s;
 }
 #filterBy {
-  /* border: 2px solid var(--c-blue); */
   border: none;
   color: rgb(200, 198, 198);
   font-size: 1.2rem;
@@ -222,8 +214,6 @@ main {
   transition: .3s;
 }
 #filterBy:hover {
-  /* background-color: var(--c-green);
-  color: rgb(20, 20, 20); */
   cursor: pointer;
 }
 #filter {
@@ -232,9 +222,6 @@ main {
   padding: 0 .4rem 0 .3rem;
   margin: 0;
 }
-/* #filterBy:hover #filter {
-  color: var(--c-green);
-} */
 .filterArrow {
   color: rgb(200, 198, 198);
   font-size: .8rem;
@@ -243,7 +230,6 @@ main {
   background-color: rgb(250, 250, 250);
   text-align: center;
   border: 2px solid var(--c-green);
-  /* border-top: none; */
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
   width: inherit;
@@ -267,7 +253,6 @@ main {
   background-color: var(--c-green);
 }
 
-
 #projects {
   display: flex;
   flex-direction: row;
@@ -280,8 +265,6 @@ main {
 .projectDiv {
   position: relative;
   max-width: 400px;
-  /* padding: 10px; */
-  /* max-width: calc(100% / 3); */
   display: none;
 }
 .projectActive {
@@ -307,12 +290,6 @@ main {
   height: 100%;
 }
 .overlayText {
-  /* color: white; */
-  /* position: absolute;
-  max-height: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -365,38 +342,17 @@ main {
 } 
 
 /* footer css */
-/* #footerSpacer {
-  width: 100%;
-  height: 40px;
-  background-color: var(--c-gray);
-}
-#footerCanvas {
-  display: block;
-  background-color: var(--c-gray);
-} */
 footer {
   background-color: rgb(64, 66, 68);
 }
-/* footer h2 {
-  color: var(--c-blue);
-} */
-/* footer .headerBar {
-  background-color: rgb(72, 72, 72);
-} */
 #contact {
   font-size: 2.5rem;
-  /* color: var(--c-green); */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
   height: 200px;
-}
-.contactIcon {
-  /* color: var(--c-green); */
-  /* border-radius: 50%;
-  border: 2px solid rgb(138, 138, 138); */
 }
 .contactIcon a {
   width: 65px;
@@ -408,14 +364,11 @@ footer {
   text-decoration: none;
   border-radius: 50%;
   border: 2px solid;
-  /* border-color: rgb(172, 172, 172); */
   border-color: var(--c-blue);
   background-color: transparent;
-  /* color: rgb(172, 172, 172); */
   color: var(--c-blue);
   transition: .3s;
 }
-
 .contactIcon:hover a {
   border-color: var(--c-blue);
   background-color: var(--c-blue);

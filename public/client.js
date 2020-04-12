@@ -191,6 +191,8 @@ function closeFilterOptions(event) {
   }
 }
 
+// CAN WORK ON FIXING FILTER ANIMATIONS
+
 // filter projects
 const selectSkill = document.querySelectorAll(".selectSkill");
 selectSkill.forEach( x => x.addEventListener("click", filter));
@@ -289,6 +291,19 @@ function filter(event) {
   }
 
   addEventListener("scroll", skillSetPosition);
+
+  // project filter
+  const filterContainer = document.getElementById("filterContainer");
+
+  function filterPosition() {
+    let positionFromTop = filterContainer.getBoundingClientRect().top;
+    if (positionFromTop - windowHeight <= 0) {
+      filterContainer.classList.add("animated", "fadeInRight");
+      filterContainer.style.visibility = "visible";
+    }
+  }
+
+  addEventListener("scroll", filterPosition);
 
   // projects
   function imgPosition() {
