@@ -8,10 +8,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="./public/style.css">
+
 </head>
 <body>
-  <nav>
-    <div id="navDiv" class="animated fadeIn delay-3s">
+  <nav class="animated fadeIn delay-3s">
+    <div id="navDiv">
+      <button class="navLink active" data-nav-link="#">
+        <a href="#">Home</a>
+      </button>
       <button class="navLink" data-nav-link="#aboutSection">
         <a href="#aboutSection">About</a>
       </button>
@@ -22,9 +26,13 @@
         <a href="#contactSection">Contact</a>
       </button>
     </div>
+    <div id="navSpacer"></div>
   </nav>
+  
   <main>
     <section id="intro">
+      <span class="sectionHeader"></span>
+      <span class="headerBarContainer" style="display: none;"></span>
       <div id="hello">
         <h1 class="animated fadeInDown">
           Hello, my name is <span class="name">Erik Oja</span>.
@@ -34,6 +42,7 @@
         </h2>
       </div>
     </section>
+    <div class="spacer"></div>
     <canvas class="transitionCanvas intro"></canvas>
     <section id="aboutSection">
       <div class="headerContainer">
@@ -43,7 +52,7 @@
         </div>
       </div>
       <div id="skills">
-        <div id="languages">
+        <div id="languages" class="skillSet" style="visibility: hidden;">
           <i class="fas fa-code skillsIcon"></i>
           <h3 class="skillH3">Languages</h3>
           <ul class="skillList">
@@ -55,7 +64,7 @@
             <li>SQL</li>
           </ul>
         </div>
-        <div id="technologies">
+        <div id="technologies" class="skillSet" style="visibility: hidden;">
           <i class="fas fa-tools skillsIcon"></i>
           <h3 class="skillH3">Technologies</h3>
           <ul class="skillList">
@@ -67,7 +76,7 @@
             <li>D3.js</li>
           </ul>
         </div>
-        <div id="frameworks">
+        <div id="frameworks" class="skillSet" style="visibility: hidden;">
           <i class="fas fa-toolbox skillsIcon"></i>
           <h3 class="skillH3">Frameworks</h3>
           <ul class="skillList">

@@ -18,17 +18,18 @@ html {
   scroll-behavior: smooth;
 }
 
-/* navigation */
-/* nav {
-  background-color: var(--c-gray);
-} */
 nav {
   background-color: var(--c-gray);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 100;
 }
 #navDiv {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  /* flex-direction: row;
+  flex-wrap: nowrap; */
   width: 75%;
   margin: 0 auto;
   justify-content: space-between;
@@ -47,7 +48,17 @@ nav {
   text-decoration: none;
   color: rgb(168, 168, 168);
 }
+#navDiv button.active a {
+  color: var(--c-orange);
+}
+#navSpacer {
+  height: 1px;
+  background-color: var(--c-orange);
+}
 
+main {
+  margin-top: 45.9px;
+}
 /* section transition canvas */
 .transitionCanvas {
   display: block;
@@ -133,6 +144,15 @@ nav {
   width: 80%;
   margin: 3rem auto;
   justify-content: space-evenly;
+}
+#languages {
+  animation-delay: .9s;
+}
+#technologies {
+  animation-delay: .6s;
+}
+#frameworks {
+  animation-delay: .3s;
 }
 #languages, #frameworks, #technologies {
   display: flex;

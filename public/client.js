@@ -8,7 +8,12 @@ navLinks.forEach( x => {
 
 function smoothScroll(event) {
   event.preventDefault();
-  const element = document.getElementById(event.target.dataset.navLink);
+  console.log(event.target.parentElement.dataset.navLink)
+  let el = event.target.parentElement.dataset.navLink;
+  el = el.split("").slice(1).join("");
+  console.log(el)
+  const element = document.getElementById(el);
+  
   element.scrollIntoView({behavior: "smooth", block: "start"});
 } */
 
@@ -229,36 +234,66 @@ function filter(event) {
   hideFilter();
 }
 
-// fade in project images on scroll
+// on scroll animations
 (function() {
   let images, windowHeight;
   function init() {
-    /* images = document.querySelectorAll(".project"); */
     windowHeight = window.innerHeight;
   }
-  
-  // section header and header bar
+
+  // section header and header bar, highlight active nav link
   const sectionHeader = document.querySelectorAll(".sectionHeader");
   const headerBarContainer = document.querySelectorAll(".headerBarContainer");
 
-  function headerPosition() {
+  function headerPosition(event) {
     let i = 0;
     for (i; i < sectionHeader.length; i++) {
       let positionFromTop = sectionHeader[i].getBoundingClientRect().top;
+      let positionFromBottom = sectionHeader[i].getBoundingClientRect().bottom;
+
+      // section header and header bar
       if (positionFromTop - windowHeight <= 0) {
         sectionHeader[i].classList.add("animated", "fadeInRight");
         sectionHeader[i].style.visibility = "visible";
         headerBarContainer[i].classList.add("animated", "fadeInRight");
         headerBarContainer[i].style.visibility = "visible";
       }
+      // highlight active nav link
+      if ((positionFromTop <= windowHeight * .49 && positionFromTop > 0) || (positionFromBottom <= windowHeight * .75 && positionFromBottom < windowHeight)) {
+        const navLinks = document.querySelectorAll(".navLink");
+        navLinks.forEach( x => {
+          if (`#${sectionHeader[i].parentElement.parentElement.id}` == x.dataset.navLink) {
+            x.classList.add("active");
+          } else {
+            x.classList.remove("active");
+          }
+        });
+      } 
     }
   }
 
-  window.addEventListener("scroll", headerPosition);
+  addEventListener("scroll", headerPosition);
+
+  // about section skillSets
+  const skillSets = document.querySelectorAll(".skillSet");
+
+  function skillSetPosition() {
+    let i = 0;
+    for (i; i < skillSets.length; i++) {
+      let positionFromTop = skillSets[i].getBoundingClientRect().top;
+      if (positionFromTop - windowHeight <= 0) {
+        skillSets[i].classList.add("animated", "fadeInLeft");
+        skillSets[i].style.visibility = "visible";
+      }
+    }
+  }
+
+  addEventListener("scroll", skillSetPosition);
 
   // projects
   function imgPosition() {
     let i = 0;
+    // variable "project" previously defined in project filter section
     for (i; i < project.length; i++) {
       let positionFromTop = project[i].getBoundingClientRect().top;
       if (positionFromTop - windowHeight <= 0) {
@@ -268,58 +303,9 @@ function filter(event) {
     }    
   } 
 
-  window.addEventListener("scroll", imgPosition);
-  window.addEventListener("resize", init);
+  addEventListener("scroll", imgPosition);
+  addEventListener("resize", init);
 
   init();
   imgPosition();
 })();
-
-// draw footer canvas
-/* const fCanvas = document.getElementById("footerCanvas");
-
-fCanvas.width = innerWidth;
-fCanvas.height = fCanvas.width * 0.12;
-const fc = fCanvas.getContext("2d"); */
-
-// resize canvas if window resized
-/* addEventListener("resize", () => {
-  drawTransitions();
-  fCanvas.width = window.innerWidth;
-  fCanvas.height = fCanvas.width * 0.12;
-  console.log(fCanvas.width, fCanvas.height);
-  fcInit();
-}); */
-
-/* function fcInit() {
-  let x0 = 0.2, y0 = 0,
-      x1 = innerWidth / 2, y1 = 0.2,
-      x2 = 0.8, y2 = 0,
-      x3 = x1, y3 = fCanvas.height,
-      fontSize = 50;
-
-  if (innerWidth < 900) {
-    x0 = 0.1, x2 = 0.9, fontSize = 40;
-  }
-  if (innerWidth < 440) {
-    x0 = 0.05, x2 = 0.95, fontSize = 20;
-  }
-
-  fc.beginPath();
-  fc.moveTo(innerWidth * x0, y0);
-  fc.lineTo(x1, fCanvas.height * y1);
-  fc.lineTo(innerWidth * x2, y2);
-  fc.lineTo(x3, y3);
-  fc.lineTo(innerWidth * x0, y0);
-  fc.fillStyle = "rgb(34, 170, 182)";//"#8AABBF";
-  fc.strokeStyle = "rgb(34, 170, 182)" //"#1C3240";
-  fc.lineWidth = 2;
-  fc.fill();
-  fc.stroke();
-
-  fc.font = `${fontSize}px helvetica`;
-  fc.fillStyle = "rgb(25, 25, 31, .9)"; //"#1C3240";
-  fc.textAlign = "center";
-  fc.fillText("Contact", innerWidth / 2, fCanvas.height * 0.6);
-}
-fcInit(); */
