@@ -1,9 +1,9 @@
 :root {
-  --c-blue: rgb(80, 145, 229);
-  --c-green: rgb(34, 170, 182);
-  --c-yellow: rgb(252, 240, 59);
-  --c-orange: rgb(255, 63, 20);
-  --c-gray: rgb(25, 25, 31);
+  --c-darkGray: #222629;
+  --c-gray: #474b4f;
+  --c-lightGray: #c6c6c6;
+  --c-limeGreen: #86c232;
+  --c-forestGreen: #61892f;
 }
 * {
   box-sizing: border-box;
@@ -12,14 +12,13 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
-  background-color: var(--c-gray);
 }
 html {
   scroll-behavior: smooth;
 }
 
 nav {
-  background-color: var(--c-gray);
+  background-color: var(--c-darkGray);
   position: fixed;
   top: 0;
   width: 100%;
@@ -47,16 +46,30 @@ nav {
   color: rgb(168, 168, 168);
 }
 #navDiv button.active a {
-  color: var(--c-orange);
+  color: var(--c-limeGreen);
 }
-#navSpacer {
+hr {
+  background-color: var(--c-limeGreen);
+  height: 3px;
+  border-color: var(--c-limeGreen);
+  border-radius: 1.5px;
+  width: 0;
+  margin: 0 auto;
+  visibility: hidden;
+  transition: .3s;
+}
+.navLink:hover hr {
+  width: 100%;
+  visibility: visible;
+}
+/* #navSpacer {
   height: 1px;
   background-color: var(--c-orange);
-}
+} */
 
-main {
+/* main {
   margin-top: 45.9px;
-}
+} */
 /* section transition canvas */
 .transitionCanvas {
   display: block;
@@ -64,14 +77,25 @@ main {
 
 /* intro section */
 #intro {
-  background-color: var(--c-gray);
+  /* background-color: var(--c-gray); */
+  background-image: url(./img/introPhoto.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
-  height: calc(100vh - 45.4px);
+  height: 100vh;
+  /* height: calc(100vh - 45.4px); */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
+}
+@media only screen and (max-width: 840px) {
+  #intro {
+    background-attachment: scroll;
+  }
 }
 #hello {
   text-align: center;
@@ -89,7 +113,7 @@ main {
   animation-duration: 1.5s;
 }
 .name {
-  color: var(--c-blue);
+  color: var(--c-limeGreen);
   font-size: 4rem;
   font-weight: 700;
 }
@@ -103,7 +127,8 @@ main {
 #aboutSection {
   display: flex;
   flex-direction: column;
-  background-color: rgb(64, 66, 68);
+  /* background-color: rgb(64, 66, 68); */
+  background-color: rgb(22, 22, 22);
   min-height: 100vh;
 }
 .headerContainer {
@@ -120,7 +145,7 @@ main {
   text-align: center;
   margin: 0;
   padding: 2.7rem 0 0;
-  color: var(--c-orange);
+  color: var(--c-lightGray);
 }
 .headerBarContainer {
   display: flex;
@@ -132,7 +157,7 @@ main {
 .headerBar {
   width: 80px;
   height: 4px;
-  background-color: var(--c-green);
+  background-color: var(--c-forestGreen);
 }
 #skills {
   display: flex;
@@ -141,6 +166,10 @@ main {
   width: 80%;
   margin: 2rem auto;
   justify-content: space-evenly;
+}
+.skillSet {
+  background-color: rgb(43, 43, 43);
+  border-radius: 5px;
 }
 #languages {
   animation-delay: .9s;
@@ -161,11 +190,11 @@ main {
 .skillH3 {
   font-size: 1.9rem;
   font-weight: 400;
-  color: var(--c-blue);
+  color: var(--c-limeGreen);
 }
 .skillsIcon {
   font-size: 2rem;
-  color: var(--c-green);
+  color: var(--c-forestGreen);
 }
 .skillList {
   color: rgb(200, 198, 198);
@@ -183,7 +212,7 @@ main {
 
 /* project section */
 #projectSection {
-  background-color: var(--c-gray);
+  background-image: linear-gradient(rgb(22, 22, 22), rgb(64, 66, 68));
   flex-direction: column;
   width: 100%;
   min-height: 100vh;
@@ -194,10 +223,11 @@ main {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 200px;
   margin: 0 auto;
   justify-content: center;
   animation-delay: .6s;
+  z-index: 1;
 }
 #filterBy {
   border: none;
@@ -217,7 +247,7 @@ main {
   cursor: pointer;
 }
 #filter {
-  color: var(--c-green);
+  color: var(--c-limeGreen);
   font-weight: 400;
   padding: 0 .4rem 0 .3rem;
   margin: 0;
@@ -229,9 +259,9 @@ main {
 .filterOptions {
   background-color: rgb(250, 250, 250);
   text-align: center;
-  border: 2px solid var(--c-green);
+  border: 2px solid var(--c-limeGreen);
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+ /*  z-index: 1; */
   width: inherit;
   position: absolute;
   top: 51px;  /*55*/
@@ -250,7 +280,7 @@ main {
   transition: .3s;
 }
 .selectSkill:hover {
-  background-color: var(--c-green);
+  background-color: var(--c-limeGreen);
 }
 
 #projects {
@@ -258,7 +288,7 @@ main {
   flex-direction: row;
   flex-wrap: wrap;
   max-width: 95%;
-  margin: 3rem auto;
+  margin: 3rem auto 0;
   padding-bottom: 3.5rem;
   justify-content: center;
 }
@@ -299,7 +329,7 @@ main {
   font-size: 1.9rem;
   font-weight: 700;
   margin: .75rem 0;
-  color: var(--c-blue);
+  color: var(--c-limeGreen);
 }
 .projectAbout {
   margin: 0 0 1.75rem;
@@ -327,14 +357,14 @@ main {
   font-size: 1.1rem;
   color: white;
   text-decoration: none;
-  border: 2px solid var(--c-blue);
+  border: 2px solid var(--c-limeGreen);
   font-weight: 300;
   margin: 0 .3rem;
   padding: .5rem 1.2rem;
   transition: .3s;
 }
 .projectView:hover, .projectCode:hover {
-  background-color: var(--c-blue);
+  background-color: var(--c-limeGreen);
 }
 .fa-chevron-right {
   font-size: 1rem;
@@ -344,6 +374,13 @@ main {
 /* footer css */
 footer {
   background-color: rgb(64, 66, 68);
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 #contact {
   font-size: 2.5rem;
@@ -353,6 +390,15 @@ footer {
   justify-content: space-evenly;
   align-items: center;
   height: 200px;
+}
+#email {
+  animation-delay: .3s;
+}
+#linkedin {
+  animation-delay: .6s;
+}
+#github {
+  animation-delay: .9s;
 }
 .contactIcon a {
   width: 65px;
@@ -364,17 +410,20 @@ footer {
   text-decoration: none;
   border-radius: 50%;
   border: 2px solid;
-  border-color: var(--c-blue);
+  border-color: var(--c-limeGreen);
   background-color: transparent;
-  color: var(--c-blue);
+  color: var(--c-limeGreen);
   transition: .3s;
 }
 .contactIcon:hover a {
-  border-color: var(--c-blue);
-  background-color: var(--c-blue);
+  border-color: var(--c-limeGreen);
+  background-color: var(--c-limeGreen);
   color: rgb(64, 66, 68);
 }
 footer p {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
   margin: 0;
   padding: 16px 0;
   font-weight: 100;
