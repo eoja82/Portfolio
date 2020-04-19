@@ -17,61 +17,6 @@ function smoothScroll(event) {
   element.scrollIntoView({behavior: "smooth", block: "start"});
 } */
 
-// use return key to navigate page links
-const navLinks = document.querySelectorAll(".navLink");
-navLinks.forEach( x => {
-  x.addEventListener("keydown", navKeydown)
-});
-
-function navKeydown(event) {
-  if (event.keyCode == 13) {
-    location.href = event.target.dataset.navLink;
-  }
-}
-
-// draw transitions between sections of page
-function drawTransitions() {
-  const transitionCanvas = document.querySelectorAll(".transitionCanvas");
-  let fillColor;
-
-  transitionCanvas.forEach( x => {
-    x.width = innerWidth;
-    x.height = x.width * .09;
-    
-    if (x.className == "transitionCanvas intro") {
-      fillColor = "rgb(25, 25, 31)";
-      x.style.backgroundColor = "rgb(64, 66, 68)";
-    } else if (x.className == "transitionCanvas about") {
-      fillColor = "rgb(64, 66, 68)";
-      x.style.backgroundColor = "rgb(25, 25, 31)";
-    } else if (x.className == "transitionCanvas projects") {
-      fillColor = "rgb(25, 25, 31)"
-      x.style.backgroundColor = "rgb(64, 66, 68)"
-    } else {
-      fillColor = "transparent";
-      x.style.backgroundColor = "transparent";
-    }
-    
-    const tc = x.getContext("2d");
-
-    function tcInit() {
-      tc.beginPath();
-      tc.moveTo(0, 0);
-      tc.lineTo(x.width, 0);
-      tc.lineTo(x.width / 2, x.height);
-      tc.lineTo(0, 0);
-      tc.fillStyle = fillColor;
-      tc.fill();
-    }
-    tcInit();
-  });
-}
-drawTransitions();
-
-addEventListener("resize", () => {
-  drawTransitions();
-});
-
 // add portfolio to DOM
 const projects = document.querySelector("#projects");
 
@@ -293,7 +238,7 @@ function filter(event) {
   addEventListener("scroll", skillSetPosition);
 
   // project filter
-  const filterContainer = document.getElementById("filterContainer");
+  /* const filterContainer = document.getElementById("filterContainer");
 
   function filterPosition() {
     let positionFromTop = filterContainer.getBoundingClientRect().top;
@@ -303,7 +248,7 @@ function filter(event) {
     }
   }
 
-  addEventListener("scroll", filterPosition);
+  addEventListener("scroll", filterPosition); */
 
   // projects
   function imgPosition() {
@@ -319,6 +264,22 @@ function filter(event) {
   } 
 
   addEventListener("scroll", imgPosition);
+
+  // contact icons
+  const contact = document.getElementById("contact");
+  const contactIcons = document.querySelectorAll(".contactIcon");
+
+  function contactPosition() {
+    let positionFromTop = contact.getBoundingClientRect().top;
+    if (positionFromTop - windowHeight <= 0) {
+      contactIcons.forEach( x => {
+        x.classList.add("animated", "fadeInLeft")
+      });
+    }
+  }
+
+  addEventListener("scroll", contactPosition);
+
   addEventListener("resize", init);
 
   init();
