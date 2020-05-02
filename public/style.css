@@ -31,6 +31,7 @@ nav {
   display: flex;
   width: 75%;
   margin: 0 auto;
+  padding: 0;
   justify-content: space-between;
 }
 .navLink {
@@ -46,12 +47,6 @@ nav {
 li.active a {
   color: var(--c-limeGreen);
 }
-.navLInk a {
-  font-size: 1.2rem;
-  font-weight: 300;
-  text-decoration: none;
-  color: rgb(168, 168, 168);
-}
 hr {
   background-color: var(--c-limeGreen);
   height: 3px;
@@ -62,7 +57,7 @@ hr {
   visibility: hidden;
   transition: .3s;
 }
-.navLink:hover hr {
+.navLink a:hover hr {
   width: 100%;
   visibility: visible;
 }
@@ -288,6 +283,8 @@ hr {
   position: relative;
   max-width: 400px;
   display: none;
+  visibility: hidden;
+  transition: .4s; /* this might not do anything */
 }
 .projectActive {
   display: block;
