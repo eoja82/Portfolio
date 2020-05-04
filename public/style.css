@@ -133,6 +133,7 @@ hr {
   margin: 0;
   padding: 2.7rem 0 0;
   color: var(--c-lightGray);
+  visibility: hidden;
 }
 .headerBarContainer {
   display: flex;
@@ -388,6 +389,9 @@ footer {
 }
 #github {
   animation-delay: .9s;
+}
+.contactIcon {
+  visibility: hidden;
 }
 .contactIcon a {
   width: 65px;
