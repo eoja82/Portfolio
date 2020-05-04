@@ -23,7 +23,7 @@ const projects = document.querySelector("#projects");
 portfolio.forEach( (x, i) => {
   // div wrapper parent element to apply css perspective
   let div = document.createElement("div");
-  div.className = "projectDiv projectActive";
+  div.className = "projectDiv projectActive";  
   
   let img = document.createElement("img");
   img.className = "project";
@@ -136,54 +136,66 @@ function closeFilterOptions(event) {
   }
 }
 
-// CAN WORK ON FIXING FILTER ANIMATIONS
-
 // filter projects
 const selectSkill = document.querySelectorAll(".selectSkill");
 selectSkill.forEach( x => x.addEventListener("click", filter));
 const project = document.querySelectorAll(".projectDiv");
 
+let tofadeOutRight,
+    toFadeIn,
+    delayOut,
+    delayIn,
+    animationIn = "fadeIn",
+    animationOut = "fadeOut";
+
 function filter(event) {
-  project.forEach( (x, i) => {
-    x.classList.replace("zoomIn", "zoomOut");
-    x.classList.remove("projectActive");
-    
-  /* }); */
-  /* let projects = document.querySelectorAll(".projectDiv"); */
-  /* project.forEach( (x, i) => {
-    if (portfolio[i].skills.includes(event.target.innerText) || event.target.innerText == "All") {
-      
-      x.classList.replace("zoomOutDown", "zoomInUp");
+  tofadeOutRight = [];
+  project.forEach( x => {
+    x.classList.remove("animated", animationIn, animationOut);
+    if (x.classList.contains("projectActive")) {
+      tofadeOutRight.push(x);
+    } 
+  });
+  
+  delayOut = 0;
+  tofadeOutRight.forEach( x => {
+    x.style.animationDelay = `${delayOut}s`;
+    delayOut += .1;
+    x.classList.add("animated", animationOut);
+  });
 
-      x.classList.add("projectActive");
-    } else {
-      x.classList.remove("projectActive");
-    }
-  }); */
+  // only want event listener on last item in tofadeOut
+  tofadeOutRight[tofadeOutRight.length - 1].addEventListener("animationend", fadeInFiltered);
 
-    setTimeout(filtered(event), 1000);
-    function filtered(event) {
-      //console.log("in timeout")
-      //console.log(event.target.innerText)
-      x.classList.remove("zoomOut");
-      if (portfolio[i].skills.includes(event.target.innerText) || event.target.innerText == "All") {
-        //console.log("in if timeout")
-        x.classList.add("zoomIn");
+  function fadeInFiltered() {
+    // remove event listener so it  doesn't fire at end of toFadeIn animation 
+    tofadeOutRight[tofadeOutRight.length - 1].removeEventListener("animationend", fadeInFiltered);
+    toFadeIn = [];
+    delayIn = 0;
+    project.forEach( (x, i) => {
+      x.classList.remove("animated", animationIn, animationOut);
+      if (portfolio[i].skills.includes(event.target.innerHTML) || event.target.innerHTML === "All") {
+        toFadeIn.push(x);
         x.classList.add("projectActive");
       } else {
         x.classList.remove("projectActive");
       }
-    }
-  });
+    });
+    toFadeIn.forEach( (x, i) => {
+      x.style.animationDelay = `${delayIn}s`;
+      delayIn += .1;
+      x.classList.add("animated", animationIn);
+    });
+  }
 
   document.getElementById("filter").innerText = event.target.innerText;
-
   hideFilter();
 }
 
 // on scroll animations
 (function() {
-  let images, windowHeight;
+  let windowHeight;
+
   function init() {
     windowHeight = window.innerHeight;
   }
@@ -251,19 +263,22 @@ function filter(event) {
   addEventListener("scroll", filterPosition); */
 
   // projects
-  function imgPosition() {
-    let i = 0;
-    // variable "project" previously defined in project filter section
-    for (i; i < project.length; i++) {
-      let positionFromTop = project[i].getBoundingClientRect().top;
-      if (positionFromTop - windowHeight <= 0) {
-        project[i].classList.add("animated", "zoomIn")
+  function animateProjects() {
+    let projectsPosition = projects.getBoundingClientRect().top,
+        i = 0,
+        delay = 0;
+    if (projectsPosition - windowHeight <= 0) {
+      // variable "project" previously defined in project filter section
+      for (i; i < project.length; i++) {
+        project[i].style.animationDelay = `${delay}s`;
+        delay += .1;
+        project[i].classList.add("animated", "fadeInLeft");
         project[i].style.visibility = "visible";
-      }  
-    }    
-  } 
+      }
+    }
+  }
 
-  addEventListener("scroll", imgPosition);
+  addEventListener("scroll", animateProjects)
 
   // contact icons
   const contact = document.getElementById("contact");
@@ -273,7 +288,8 @@ function filter(event) {
     let positionFromTop = contact.getBoundingClientRect().top;
     if (positionFromTop - windowHeight <= 0) {
       contactIcons.forEach( x => {
-        x.classList.add("animated", "fadeInLeft")
+        x.classList.add("animated", "fadeInLeft");
+        x.style.visibility = "visible";
       });
     }
   }
@@ -283,5 +299,5 @@ function filter(event) {
   addEventListener("resize", init);
 
   init();
-  imgPosition();
+ 
 })();
