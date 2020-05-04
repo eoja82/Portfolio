@@ -211,7 +211,8 @@ hr {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 200px;
+  /* width changes to 200px on animationend */
+  width: 100%;
   margin: 0 auto;
   justify-content: center;
   animation-delay: .6s;
@@ -249,7 +250,6 @@ hr {
   text-align: center;
   border: 2px solid var(--c-limeGreen);
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
- /*  z-index: 1; */
   width: inherit;
   position: absolute;
   top: 51px;  /*55*/

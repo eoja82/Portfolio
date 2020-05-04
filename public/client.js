@@ -141,7 +141,7 @@ const selectSkill = document.querySelectorAll(".selectSkill");
 selectSkill.forEach( x => x.addEventListener("click", filter));
 const project = document.querySelectorAll(".projectDiv");
 
-let tofadeOutRight,
+let tofadeOut,
     toFadeIn,
     delayOut,
     delayIn,
@@ -149,27 +149,35 @@ let tofadeOutRight,
     animationOut = "fadeOut";
 
 function filter(event) {
-  tofadeOutRight = [];
+  const filter = document.getElementById("filter");
+
+  // don't animate unless a different filter is selected  
+  if (filter.innerText === event.target.innerText) {
+    hideFilter();
+    return;
+  }
+
+  tofadeOut = [];
   project.forEach( x => {
-    x.classList.remove("animated", animationIn, animationOut);
+    x.classList.remove("animated", "fadeInLeft", animationIn, animationOut);
     if (x.classList.contains("projectActive")) {
-      tofadeOutRight.push(x);
+      tofadeOut.push(x);
     } 
   });
   
   delayOut = 0;
-  tofadeOutRight.forEach( x => {
+  tofadeOut.forEach( x => {
     x.style.animationDelay = `${delayOut}s`;
     delayOut += .1;
     x.classList.add("animated", animationOut);
   });
 
   // only want event listener on last item in tofadeOut
-  tofadeOutRight[tofadeOutRight.length - 1].addEventListener("animationend", fadeInFiltered);
+  tofadeOut[tofadeOut.length - 1].addEventListener("animationend", fadeInFiltered);
 
   function fadeInFiltered() {
     // remove event listener so it  doesn't fire at end of toFadeIn animation 
-    tofadeOutRight[tofadeOutRight.length - 1].removeEventListener("animationend", fadeInFiltered);
+    tofadeOut[tofadeOut.length - 1].removeEventListener("animationend", fadeInFiltered);
     toFadeIn = [];
     delayIn = 0;
     project.forEach( (x, i) => {
@@ -188,7 +196,7 @@ function filter(event) {
     });
   }
 
-  document.getElementById("filter").innerText = event.target.innerText;
+  filter.innerText = event.target.innerText;
   hideFilter();
 }
 
@@ -250,7 +258,7 @@ function filter(event) {
   addEventListener("scroll", skillSetPosition);
 
   // project filter
-  /* const filterContainer = document.getElementById("filterContainer");
+  const filterContainer = document.getElementById("filterContainer");
 
   function filterPosition() {
     let positionFromTop = filterContainer.getBoundingClientRect().top;
@@ -258,9 +266,19 @@ function filter(event) {
       filterContainer.classList.add("animated", "fadeInRight");
       filterContainer.style.visibility = "visible";
     }
+
+    filterContainer.addEventListener("animationend", resizeFilterContainer);
+
+    // keep filter dropdown on top of projects and not full width
+    function resizeFilterContainer() {
+      filterContainer.classList.remove("animated", "fadeInRight");
+      filterContainer.style.width = "200px";
+      removeEventListener("scroll", filterPosition);
+    }
+
   }
 
-  addEventListener("scroll", filterPosition); */
+  addEventListener("scroll", filterPosition);
 
   // projects
   function animateProjects() {
@@ -275,6 +293,12 @@ function filter(event) {
         project[i].classList.add("animated", "fadeInLeft");
         project[i].style.visibility = "visible";
       }
+    }
+
+    project[project.length - 1].addEventListener("animationend", endScrollAnimateProjects);
+
+    function endScrollAnimateProjects() {
+      removeEventListener("scroll", animateProjects);
     }
   }
 
