@@ -241,6 +241,19 @@ function filter(event) {
 
   addEventListener("scroll", headerPosition);
 
+  // about section aboutMe
+  const aboutMe = document.getElementById("aboutMe");
+
+  function aboutMePosition() {
+    let positionFromTop = aboutMe.getBoundingClientRect().top;
+    if (positionFromTop - windowHeight <= 0) {
+      aboutMe.classList.add("animated", "fadeInLeft");
+      aboutMe.style.visibility = "visible";
+    }
+  }
+
+  addEventListener("scroll", aboutMePosition);
+
   // about section skillSets
   const skillSets = document.querySelectorAll(".skillSet");
 

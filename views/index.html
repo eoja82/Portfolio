@@ -14,16 +14,16 @@
   <nav class="animated fadeIn delay-3s">
     <ul id="navList">
       <li class="navLink active" data-nav-link="#">
-        <a href="#">Home<hr></a>
+        <a href="#">Home<hr class="navHr"></a>
       </li>
       <li class="navLink" data-nav-link="#aboutSection">
-        <a href="#aboutSection">About<hr></a>
+        <a href="#aboutSection">About<hr class="navHr"></a>
       </li>
       <li class="navLink" data-nav-link="#projectSection">
-        <a href="#projectSection">Projects<hr></a>
+        <a href="#projectSection">Projects<hr class="navHr"></a>
       </li>
       <li class="navLink" data-nav-link="#contactSection">
-        <a href="#contactSection">Contact<hr></a>
+        <a href="#contactSection">Contact<hr class="navHr"></a>
       </li>
     </ul>
   </nav>
@@ -42,8 +42,7 @@
         </h2>
       </div>
     </section>
-    <div class="spacer"></div>
-    <!-- <canvas class="transitionCanvas intro"></canvas> -->
+
     <section id="aboutSection">
       <div class="headerContainer">
         <h2 class="sectionHeader">ABOUT</h2>
@@ -51,8 +50,18 @@
           <div class="headerBar"></div>
         </div>
       </div>
-      <div id="aboutMe">
-
+      <div id="aboutMeContainer">
+        <div id="aboutMe">
+          <p>
+            I've always wondered how the websites we see on our computers and devices were created - what did someone type to make this happen?
+          </p>
+          <p>
+            A little over a year ago I had the opportunity to take a deep dive into figuring it out.  I got hooked right away and ever since I have been taking this opportunity to learn more everyday.
+          </p>
+          <p>
+            Now it is time to turn this passion into a career!   
+          </p>
+        </div>
       </div>
       <div id="skills">
         <div id="languages" class="skillSet">
@@ -92,7 +101,7 @@
         </div>
       </div>
     </section>
-    <!-- <canvas class="transitionCanvas about"></canvas> -->
+
     <section id="projectSection">
       <div class="headerContainer">
         <h2 class="sectionHeader">PROJECTS</h2>
@@ -100,7 +109,7 @@
           <div class="headerBar"></div>
         </div>
       </div>
-      <div id="filterContainer"> <!-- style: visiblity: hidden -->
+      <div id="filterContainer">
         <button id="filterBy">Filter by<span id="filter"> All</span><i class="fas fa-chevron-down filterArrow"></i>
         </button>
         <div class="filterOptions"></div>
@@ -108,7 +117,7 @@
       <div id="projects"></div>
     </section>
   </main>
-  <!-- <canvas class="transitionCanvas projects"></canvas> -->
+  
   <footer id="contactSection">
     <div class="headerContainer">
       <h2 class="sectionHeader">CONTACT</h2>

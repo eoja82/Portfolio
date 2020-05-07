@@ -5,6 +5,7 @@
   --c-lightGray: #c6c6c6;
   --c-limeGreen: #86c232;
   --c-forestGreen: #61892f;
+  --c-blue: #3accf9;
 }
 * {
   box-sizing: border-box;
@@ -47,7 +48,7 @@ nav {
 li.active a {
   color: var(--c-limeGreen);
 }
-hr {
+.navHr {
   background-color: var(--c-limeGreen);
   height: 3px;
   border-color: var(--c-limeGreen);
@@ -57,7 +58,7 @@ hr {
   visibility: hidden;
   transition: .3s;
 }
-.navLink a:hover hr {
+.navLink a:hover .navHr {
   width: 100%;
   visibility: visible;
 }
@@ -149,13 +150,28 @@ hr {
   height: 4px;
   background-color: var(--c-forestGreen);
 }
+#aboutMeContainer {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  margin: 0 auto;
+  justify-content: center;
+  color: var(--c-lightGray);
+  font-size: 1.1rem;
+  font-weight: 100;
+  line-height: 1.5;
+  text-align: center;
+}
+#aboutMe {
+  visibility: hidden;
+}
 #skills {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 80%;
   margin: 2rem auto;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 .skillSet {
   background-color: rgb(43, 43, 43);
