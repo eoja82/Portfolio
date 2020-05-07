@@ -82,6 +82,7 @@ hr {
 @media only screen and (max-width: 840px) {
   #intro {
     background-attachment: scroll;
+    width: auto;
   }
 }
 #hello {
@@ -141,6 +142,7 @@ hr {
   margin: auto;
   justify-content: center;
   animation-delay: 0.3s;
+  visibility: hidden;
 }
 .headerBar {
   width: 80px;
@@ -158,6 +160,7 @@ hr {
 .skillSet {
   background-color: rgb(43, 43, 43);
   border-radius: 5px;
+  visibility: hidden;
 }
 #languages {
   animation-delay: .9s;
@@ -317,7 +320,7 @@ hr {
 }
 .projectTitle {
   font-size: 1.9rem;
-  font-weight: 700;
+  font-weight: 300;
   margin: .75rem 0;
   color: var(--c-limeGreen);
 }
