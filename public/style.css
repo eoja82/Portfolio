@@ -58,10 +58,6 @@ li.active a {
   visibility: hidden;
   transition: .3s;
 }
-.navLink a:hover .navHr {
-  width: 100%;
-  visibility: visible;
-}
 
 /* intro section */
 #intro {
@@ -457,6 +453,12 @@ footer p {
   }
 }
 @media only screen and (max-width: 440px) {
+  #navList {
+    width: 90%;
+  }
+  #hello {
+    padding-bottom: 4rem;
+  }
   #languages, #frameworks, #technologies {
     width: 80%;
   }
@@ -483,5 +485,8 @@ footer p {
   }
   .buttonDiv {
     margin-top: 2.5rem;
+  }
+  #contact {
+    padding-bottom: 8rem;
   }
 }

@@ -17,6 +17,26 @@ function smoothScroll(event) {
   element.scrollIntoView({behavior: "smooth", block: "start"});
 } */
 
+// underline nav links on mouseenter
+const navLinks = document.querySelectorAll(".navLink");
+
+function underlineNavLink(event) {
+  if (event.webkitForce > 0 || event.mozPressure > 0) return;
+  event.target.nextElementSibling.style.visibility = "visible";
+  event.target.nextElementSibling.style.width = "100%";
+
+  function mouseOut() {
+    event.target.nextElementSibling.style.visibility = "hidden";
+    event.target.nextElementSibling.style.width = "0";
+  }
+
+  event.target.addEventListener("mouseleave", mouseOut);
+}
+
+navLinks.forEach( x => {
+  x.firstElementChild.addEventListener("mouseenter", underlineNavLink);
+});
+
 // add portfolio to DOM
 const projects = document.querySelector("#projects");
 
