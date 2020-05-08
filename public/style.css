@@ -80,12 +80,6 @@ li.active a {
   align-items: center;
   position: relative;
 }
-@media only screen and (max-width: 840px) {
-  #intro {
-    background-attachment: scroll;
-    width: auto;
-  }
-}
 #hello {
   text-align: center;
   color: rgb(242, 242, 242);
@@ -441,4 +435,53 @@ footer p {
   font-weight: 100;
   text-align: center;
   color: rgb(138, 138,138);
+}
+@media only screen and (max-width: 840px) {
+  #intro {
+    background-attachment: scroll;
+  }
+  #aboutMeContainer {
+    max-width: 90%;
+  }
+  #skills {
+    width: 90%;
+  }
+  #languages, #frameworks, #technologies {
+    width: 225px;
+  }
+  #aboutSection, #projectSection, #contactSection {
+    min-height: 60vh;
+  }
+  .projectDiv {
+    max-width: calc(95vw / 2);
+  }
+}
+@media only screen and (max-width: 440px) {
+  #languages, #frameworks, #technologies {
+    width: 80%;
+  }
+  #frameworks, #technologies {
+    margin-top: .75rem;
+  }
+  #skills {
+    justify-content: center;
+  }
+  #projects {
+    max-width: 100%;
+  }
+  .projectDiv {
+    max-width: 100%;
+  }
+  .overlayText {
+    padding: .5rem;
+  }
+  .projectTitle {
+    font-size: 1.5rem;
+  }
+  .projectSkill {
+    font-size: 1rem;
+  }
+  .buttonDiv {
+    margin-top: 2.5rem;
+  }
 }
