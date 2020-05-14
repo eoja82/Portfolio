@@ -106,7 +106,7 @@ li.active a {
 } */
 
 /* about section */
-#aboutSection {
+#about {
   display: flex;
   flex-direction: column;
   /* background-color: rgb(64, 66, 68); */
@@ -141,14 +141,12 @@ li.active a {
 .headerBar {
   width: 80px;
   height: 4px;
+  border-radius: 2px;
   background-color: var(--c-forestGreen);
 }
 #aboutMeContainer {
-  display: flex;
-  flex-direction: column;
   max-width: 80%;
   margin: 0 auto;
-  justify-content: center;
   color: var(--c-lightGray);
   font-size: 1.1rem;
   font-weight: 100;
@@ -164,7 +162,7 @@ li.active a {
   flex-wrap: wrap;
   width: 80%;
   margin: 2rem auto;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .skillSet {
   background-color: rgb(43, 43, 43);
@@ -186,6 +184,7 @@ li.active a {
   text-align: center;
   width: 250px;
   padding: 2rem;
+  margin-bottom: 1rem;
 }
 .skillH3 {
   font-size: 1.9rem;
@@ -211,7 +210,7 @@ li.active a {
 }
 
 /* project section */
-#projectSection {
+#project {
   background-image: linear-gradient(rgb(22, 22, 22), rgb(64, 66, 68));
   flex-direction: column;
   width: 100%;
@@ -288,7 +287,7 @@ li.active a {
   flex-direction: row;
   flex-wrap: wrap;
   max-width: 95%;
-  margin: 3rem auto 0;
+  margin: 2rem auto 0;
   padding-bottom: 3.5rem;
   justify-content: center;
 }
@@ -393,6 +392,16 @@ footer {
   align-items: center;
   height: 200px;
 }
+#hireMe {
+  max-width: 80%;
+  margin: 2.25rem auto 0;
+  color: rgb(242, 242, 242);
+  font-size: 1.25rem;
+  font-weight: 100;
+  line-height: 1.5;
+  text-align: center;
+  visibility: hidden;
+}
 #email {
   animation-delay: .3s;
 }
@@ -425,7 +434,7 @@ footer {
   background-color: var(--c-limeGreen);
   color: rgb(64, 66, 68);
 }
-footer p {
+.copywrite {
   position: absolute;
   bottom: 1rem;
   width: 100%;
@@ -448,7 +457,7 @@ footer p {
   #languages, #frameworks, #technologies {
     width: 225px;
   }
-  #aboutSection, #projectSection, #contactSection {
+  #about, #project, #contactme {
     min-height: 60vh;
   }
   .projectDiv {
@@ -464,6 +473,9 @@ footer p {
   }
   .lineBreak {
     display: block;
+  }
+  .sectionHeader {
+    font-size: 2.8rem;
   }
   #languages, #frameworks, #technologies {
     width: 80%;
@@ -494,5 +506,11 @@ footer p {
   }
   #contact {
     padding-bottom: 8rem;
+  }
+  footer .headerContainer {
+    margin: 0 auto;
+  }
+  #hireMe {
+    margin: 2.25rem auto;
   }
 }
