@@ -21,6 +21,7 @@ function smoothScroll(event) {
 const navLinks = document.querySelectorAll(".navLink");
 
 function underlineNavLink(event) {
+  // disable if touched not mouseenter
   if (event.webkitForce > 0 || event.mozPressure > 0) return;
   event.target.nextElementSibling.style.visibility = "visible";
   event.target.nextElementSibling.style.width = "100%";
@@ -269,6 +270,7 @@ function filter(event) {
     if (positionFromTop - windowHeight <= 0) {
       aboutMe.classList.add("animated", "fadeInLeft");
       aboutMe.style.visibility = "visible";
+      removeEventListener("scroll", aboutMePosition);
     }
   }
 
@@ -284,6 +286,9 @@ function filter(event) {
       if (positionFromTop - windowHeight <= 0) {
         skillSets[i].classList.add("animated", "fadeInLeft");
         skillSets[i].style.visibility = "visible";
+      }
+      if (skillSets[skillSets.length - 1].style.visibility == "visible") {
+        removeEventListener("scroll", skillSetPosition);
       }
     }
   }
@@ -328,14 +333,26 @@ function filter(event) {
       }
     }
 
-    project[project.length - 1].addEventListener("animationend", endScrollAnimateProjects);
+    project[project.length - 1].addEventListener("animationend", () => { 
+      removeEventListener("scroll", animateProjects); 
+    });
+  }
 
-    function endScrollAnimateProjects() {
-      removeEventListener("scroll", animateProjects);
+  addEventListener("scroll", animateProjects);
+
+  // hire me paragraph
+  const hireMe = document.getElementById("hireMe");
+  
+  function hireMePosition() {
+    let positionFromTop = hireMe.getBoundingClientRect().top;
+    if (positionFromTop - windowHeight <= 0) {
+      hireMe.classList.add("animated", "fadeInLeft");
+      hireMe.style.visibility = "visible";
+      removeEventListener("scroll", hireMePosition);
     }
   }
 
-  addEventListener("scroll", animateProjects)
+  addEventListener("scroll", hireMePosition);
 
   // contact icons
   const contact = document.getElementById("contact");
@@ -348,6 +365,9 @@ function filter(event) {
         x.classList.add("animated", "fadeInLeft");
         x.style.visibility = "visible";
       });
+    }
+    if (contactIcons[contactIcons.length - 1].style.visibility === "visible") {
+      removeEventListener("scroll", contactPosition);
     }
   }
 
