@@ -48,7 +48,7 @@ nav {
 li.active a {
   color: var(--c-limeGreen);
 }
-.navHr {
+.navHr, .footerHr {
   background-color: var(--c-limeGreen);
   height: 3px;
   border-color: var(--c-limeGreen);
@@ -373,6 +373,7 @@ li.active a {
 } 
 
 /* footer css */
+/* .footerHr stlye in nav section */
 footer {
   background-color: rgb(64, 66, 68);
   width: 100%;
@@ -384,7 +385,6 @@ footer {
   justify-content: center;
 }
 #contact {
-  font-size: 2.5rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -412,16 +412,24 @@ footer {
   animation-delay: .9s;
 }
 .contactIcon {
+  display: flex;
+  flex-direction: column;
   visibility: hidden;
+  text-align: center;
 }
-.contactIcon a {
+.contactIcon .link {
+  text-decoration: none;
+  cursor: default;
+}
+.linkIcon {
+  cursor: pointer;
   width: 65px;
   height: 65px;
   display: flex;
+  font-size: 2.5rem;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  text-decoration: none;
+  margin: 0 auto .5rem;
   border-radius: 50%;
   border: 2px solid;
   border-color: var(--c-limeGreen);
@@ -429,10 +437,16 @@ footer {
   color: var(--c-limeGreen);
   transition: .3s;
 }
-.contactIcon:hover a {
-  border-color: var(--c-limeGreen);
-  background-color: var(--c-limeGreen);
-  color: rgb(64, 66, 68);
+.linkDescriptionContainer {
+  max-width: 100%;
+  margin: 0 auto;
+}
+.linkDescription {
+  margin-top: .5rem;
+  font-size: 1.25rem;
+  font-weight: 100;
+  color: rgb(242, 242, 242);
+  text-decoration: none;
 }
 .copywrite {
   position: absolute;
