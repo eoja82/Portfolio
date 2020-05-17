@@ -21,7 +21,7 @@ const portfolio = [
     view: "https://fcc-track-issues.glitch.me/",
     code: "https://glitch.com/edit/#!/fcc-track-issues?path=routes/api.js:1:0",
     about: "A full stack app built with JavaScript, Node.js, Mongoose, Express and MongoDB that can track issues for projects.  The app also includes Chai assertion testing.",
-    skills: ["JavaScript","Node.js", "Express", "Mongoose",  "Chai", "Helmet", "MongoDB"]
+    skills: ["JavaScript","Node.js", "Express", "Mongoose", "MongoDB", "Chai", "Helmet"]
   },
   {
     src: "./public/img/chatRoom.png", 
@@ -29,7 +29,7 @@ const portfolio = [
     view: "https://rapid-powder.glitch.me/",
     code: "https://glitch.com/edit/#!/rapid-powder?path=server.js:1:0",
     about: "A full stack Socket.IO chat app.  Login with GitHub authentication strategy for Passport.",
-    skills: ["JavaScript", "HTML", "CSS", "Node.js", "Express", "MongoDB", "Socket.IO", "Passport"]
+    skills: ["JavaScript", "Node.js", "Express", "MongoDB", "Socket.IO", "Passport"]
   },
   {
     src: "./public/img/choroplethMap.png", 
@@ -45,7 +45,7 @@ const portfolio = [
     view: "https://eoja82-pomodoro-clock.glitch.me/",
     code: "https://github.com/eoja82/Pomodoro-Clock",
     about: "Built with React, Node.js, and Express.",
-    skills: ["React", "JavaScript", "Node.js", "HTML", "CSS"]
+    skills: ["React", "Node.js", "HTML", "CSS"]
   },
   {
     src: "./public/img/calculator.png", 
@@ -53,7 +53,7 @@ const portfolio = [
     view: "https://eoja82-calculator.glitch.me/",
     code: "https://github.com/eoja82/Calculator",
     about: "Built with React, Bootstrap, Node.js, and Express.",
-    skills: ["Node.js", "React", "JavaScript", "Bootstrap", "HTML", "CSS"]
+    skills: ["React", "Node.js", "Bootstrap", "HTML", "CSS"]
   },
   {
     src: "./public/img/randomQuotes.png", 
@@ -61,16 +61,12 @@ const portfolio = [
     view: "https://eoja82-random-quote-generator-1.glitch.me/",
     code: "https://github.com/eoja82/Random-Quote-Generator",
     about: "Built with React, Node.js, and Express.",
-    skills: ["Node.js", "React", "JavaScript", "Bootstrap", "HTML", "CSS"]
+    skills: ["React", "Node.js", "Bootstrap", "HTML", "CSS"]
   }
-];
-
-const skillset = [
-  "JavaScript", "React", "HTML", "CSS", "Node.js", "MongoDB", "Mongoose", "Express", "Python", "C", "SQL"
 ];
 
 const filters = [
   "JavaScript", "React", "Node.js", "MongoDB", "D3.js", "All"
 ];
 
-export { portfolio, skillset, filters }
+export { portfolio, filters }
