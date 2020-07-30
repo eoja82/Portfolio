@@ -332,10 +332,10 @@ li.active a {
   margin: .75rem 0;
   color: var(--c-limeGreen);
 }
-.projectAbout {
+/* .projectAbout {
   margin: 0 0 1.75rem;
   color: rgb(99, 99, 99);
-}
+} */
 .projectSkillList {
   display: flex;
   flex-direction: row;
@@ -355,7 +355,9 @@ li.active a {
   margin-top: 3rem;
 }
 .projectView, .projectCode {
+  cursor: pointer;
   font-size: 1.1rem;
+  background-color: transparent;
   color: white;
   text-decoration: none;
   border: 2px solid var(--c-limeGreen);
@@ -477,6 +479,15 @@ footer {
   .projectDiv {
     max-width: calc(95vw / 2);
   }
+  .projectView, .projectCode {
+    font-size: .9rem;
+  }
+  .buttonDiv {
+    margin-top: 2rem;
+  }
+  .fa-chevron-right {
+    font-size: .8rem;
+  }
 }
 @media only screen and (max-width: 440px) {
   #navList {
@@ -515,8 +526,8 @@ footer {
   .projectSkill {
     font-size: 1rem;
   }
-  .buttonDiv {
-    margin-top: 2.5rem;
+  .projectView, .projectCode {
+    padding: .3rem 1rem;
   }
   #contact {
     padding-bottom: 8rem;

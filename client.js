@@ -1,22 +1,5 @@
 import { portfolio, filters } from "./data.js"
 
-// smooth scroll nav links
-/* const navLinks = document.querySelectorAll(".navLink");
-navLinks.forEach( x => {
-  x.addEventListener("click", smoothScroll);
-});
-
-function smoothScroll(event) {
-  event.preventDefault();
-  console.log(event.target.parentElement.dataset.navLink)
-  let el = event.target.parentElement.dataset.navLink;
-  el = el.split("").slice(1).join("");
-  console.log(el)
-  const element = document.getElementById(el);
-  
-  element.scrollIntoView({behavior: "smooth", block: "start"});
-} */
-
 // underline nav links on mouseenter
 const navLinks = document.querySelectorAll(".navLink");
 
@@ -42,13 +25,11 @@ function underlineNavLink(event) {
 const projects = document.querySelector("#projects");
 
 portfolio.forEach( (x, i) => {
-  // div wrapper parent element to apply css perspective
   let div = document.createElement("div");
   div.className = "projectDiv projectActive";  
   
   let img = document.createElement("img");
   img.className = "project";
-  /* img.style.visibility = "hidden"; */
   img.id = `photo${i}`
   img.src = x.src;
   img.alt = x.alt;
@@ -74,7 +55,6 @@ portfolio.forEach( (x, i) => {
     p.className = "projectSkill";
     p.innerText = skill;
     projectSkillList.appendChild(p);
-    //overlayText.appendChild(p);
   });
   overlayText.appendChild(projectSkillList);
 
@@ -102,11 +82,31 @@ portfolio.forEach( (x, i) => {
   codeIcon.className = "fas fa-chevron-right";
   code.appendChild(codeIcon);
   buttonDiv.appendChild(code);
-  overlayText.appendChild(buttonDiv);
+  /* overlayText.appendChild(buttonDiv); */
+
+  /* let about = document.createElement("button");
+  about.className = "projectAbout";
+  about.innerHTML = "ABOUT ";
+  about.dataset.about = x.about;
+  let aboutIcon = document.createElement("i");
+  aboutIcon.className = "fas fa-chevron-right";
+  about.appendChild(aboutIcon);
+  buttonDiv.appendChild(about); */
   
+  overlayText.appendChild(buttonDiv);
   overlay.appendChild(overlayText);
   div.appendChild(overlay);
 });
+
+// add event listener to project overlay about
+/* const projectAbouts = document.querySelectorAll(".projectAbout");
+projectAbouts.forEach( x => {
+  x.addEventListener("click", displayAbout);
+});
+
+function displayAbout(e) {
+  alert(e.target.dataset.about);
+} */
 
 // add project filters to DOM
 const filterOptions = document.querySelector(".filterOptions");
