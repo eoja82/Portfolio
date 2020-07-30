@@ -1,0 +1,541 @@
+/* color schemes https://visme.co/blog/website-color-schemes/ */
+:root {
+  --c-darkGray: #222629;
+  --c-gray: #474b4f;
+  --c-lightGray: #c6c6c6;
+  --c-limeGreen: #86c232;
+  --c-forestGreen: #61892f;
+  --c-blue: #3accf9;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* navigation */
+nav {
+  background-color: var(--c-darkGray);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0 auto;
+  z-index: 100;
+}
+#navList {
+  display: flex;
+  width: 75%;
+  margin: 0 auto;
+  padding: 0;
+  justify-content: space-between;
+}
+.navLink {
+  list-style-type: none;
+  padding: .6rem 0 calc(.6rem - 3px);
+}
+.navLink a {
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-decoration: none;
+  color: rgb(168, 168, 168);
+}
+li.active a {
+  color: var(--c-limeGreen);
+}
+.navHr, .footerHr {
+  background-color: var(--c-limeGreen);
+  height: 3px;
+  border-color: var(--c-limeGreen);
+  border-radius: 1.5px;
+  width: 0;
+  margin: 0 auto;
+  visibility: hidden;
+  transition: .3s;
+}
+
+/* intro section */
+#intro {
+  /* background-color: var(--c-gray); */
+  background-image: url(./img/introPhoto.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  /* height: calc(100vh - 45.4px); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+#hello {
+  text-align: center;
+  color: rgb(242, 242, 242);
+}
+.fadeInDown {
+  font-weight: 300;
+  font-size: 2rem;
+  animation-duration: 1.5s;
+  margin-top: 0;
+}
+.fadeInUp {
+  font-weight: 300;
+  animation-delay: 1.5s;
+  animation-duration: 1.5s;
+}
+.lineBreak {
+  display: none;
+}
+.name {
+  color: var(--c-limeGreen);
+  font-size: 4rem;
+  font-weight: 700;
+}
+/* .whoAmI {
+  color: var(--c-green);
+  font-size: 2rem;
+  font-weight: bolder;
+} */
+
+/* about section */
+#about {
+  display: flex;
+  flex-direction: column;
+  /* background-color: rgb(64, 66, 68); */
+  background-color: rgb(22, 22, 22);
+  min-height: 100vh;
+}
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto 1.5rem;
+  padding-top: 3rem;
+  justify-content: center;
+}
+.sectionHeader {
+  font-weight: 300;
+  font-size: 3.5rem;
+  text-align: center;
+  margin: 0;
+  padding: 2.7rem 0 0;
+  color: var(--c-lightGray);
+  visibility: hidden;
+}
+.headerBarContainer {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+  animation-delay: 0.3s;
+  visibility: hidden;
+}
+.headerBar {
+  width: 80px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--c-forestGreen);
+}
+#aboutMeContainer {
+  max-width: 80%;
+  margin: 0 auto;
+  color: var(--c-lightGray);
+  font-size: 1.1rem;
+  font-weight: 100;
+  line-height: 1.5;
+  text-align: center;
+}
+#aboutMe {
+  visibility: hidden;
+}
+#skills {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 2rem auto;
+  justify-content: space-around;
+}
+.skillSet {
+  background-color: rgb(43, 43, 43);
+  border-radius: 5px;
+  visibility: hidden;
+}
+#languages {
+  animation-delay: .9s;
+}
+#technologies {
+  animation-delay: .6s;
+}
+#frameworks {
+  animation-delay: .3s;
+}
+#languages, #frameworks, #technologies {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 250px;
+  padding: 2rem;
+  margin-bottom: 1rem;
+}
+.skillH3 {
+  font-size: 1.9rem;
+  font-weight: 400;
+  color: var(--c-limeGreen);
+}
+.skillsIcon {
+  font-size: 2rem;
+  color: var(--c-forestGreen);
+}
+.skillList {
+  color: rgb(200, 198, 198);
+  display: flex;
+  flex-direction: column;
+}
+.skillList {
+  font-size: 1.2rem;
+  font-weight: 300;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  line-height: 1.8rem;
+}
+
+/* project section */
+#project {
+  background-image: linear-gradient(rgb(22, 22, 22), rgb(64, 66, 68));
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* hover filter */
+#filterContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* width changes to 200px on animationend */
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  animation-delay: .6s;
+  z-index: 1;
+}
+#filterBy {
+  border: none;
+  color: rgb(200, 198, 198);
+  font-size: 1.2rem;
+  font-weight: 100;
+  padding: 1rem 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  transition: .3s;
+}
+#filterBy:hover {
+  cursor: pointer;
+}
+#filter {
+  color: var(--c-limeGreen);
+  font-weight: 400;
+  padding: 0 .4rem 0 .3rem;
+  margin: 0;
+}
+.filterArrow {
+  color: rgb(200, 198, 198);
+  font-size: .8rem;
+}
+.filterOptions {
+  background-color: rgb(250, 250, 250);
+  text-align: center;
+  border: 3px solid var(--c-limeGreen);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  width: inherit;
+  position: absolute;
+  top: 51px;  /*55*/
+  transition: .4s;
+  overflow: hidden;
+}
+.filterBySkill {
+  margin: 0;
+  padding: 0;
+}
+.selectSkill {
+  background-color: inherit;
+  list-style-type: none;
+  padding: .4rem .5rem;
+  cursor: pointer;
+  transition: .3s;
+}
+.selectSkill:hover {
+  background-color: var(--c-limeGreen);
+}
+
+#projects {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 95%;
+  margin: 2rem auto 0;
+  padding-bottom: 3.5rem;
+  justify-content: center;
+}
+.projectDiv {
+  position: relative;
+  max-width: 400px;
+  display: none;
+  visibility: hidden;
+  transition: .4s; /* this might not do anything */
+}
+.projectActive {
+  display: block;
+}
+.project {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(45, 45, 45, .9);
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+.projectDiv:hover .overlay {
+  height: 100%;
+}
+.overlayText {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1.5rem;
+}
+.projectTitle {
+  font-size: 1.9rem;
+  font-weight: 300;
+  margin: .75rem 0;
+  color: var(--c-limeGreen);
+}
+/* .projectAbout {
+  margin: 0 0 1.75rem;
+  color: rgb(99, 99, 99);
+} */
+.projectSkillList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  max-width: 90%;
+  margin: 0 auto;
+  justify-content: space-evenly;
+}
+.projectSkill {
+  color: white;
+  line-height: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 100;
+  margin: 0 .6rem;
+}
+.buttonDiv {
+  margin-top: 3rem;
+}
+.projectView, .projectCode {
+  cursor: pointer;
+  font-size: 1.1rem;
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+  border: 2px solid var(--c-limeGreen);
+  font-weight: 300;
+  margin: 0 .3rem;
+  padding: .5rem 1.2rem;
+  transition: .3s;
+}
+.projectView:hover, .projectCode:hover {
+  background-color: var(--c-limeGreen);
+}
+.fa-chevron-right {
+  font-size: 1rem;
+  color: rgb(255, 255, 255, .9);
+} 
+
+/* footer css */
+/* .footerHr stlye in nav section */
+footer {
+  background-color: rgb(64, 66, 68);
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#contact {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 200px;
+}
+#hireMe {
+  max-width: 80%;
+  margin: 2.25rem auto 0;
+  color: rgb(242, 242, 242);
+  font-size: 1.25rem;
+  font-weight: 100;
+  line-height: 1.5;
+  text-align: center;
+  visibility: hidden;
+}
+#email {
+  animation-delay: .3s;
+}
+#linkedin {
+  animation-delay: .6s;
+}
+#github {
+  animation-delay: .9s;
+}
+.contactIcon {
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+  text-align: center;
+}
+.contactIcon .link {
+  text-decoration: none;
+  cursor: default;
+}
+.linkIcon {
+  cursor: pointer;
+  width: 65px;
+  height: 65px;
+  display: flex;
+  font-size: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto .5rem;
+  border-radius: 50%;
+  border: 2px solid;
+  border-color: var(--c-limeGreen);
+  background-color: transparent;
+  color: var(--c-limeGreen);
+  transition: .3s;
+}
+.linkDescriptionContainer {
+  max-width: 100%;
+  margin: 0 auto;
+}
+.linkDescription {
+  margin-top: .5rem;
+  font-size: 1.25rem;
+  font-weight: 100;
+  color: rgb(242, 242, 242);
+  text-decoration: none;
+}
+.copywrite {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  margin: 0;
+  padding: 16px 0;
+  font-weight: 100;
+  text-align: center;
+  color: rgb(138, 138,138);
+}
+@media only screen and (max-width: 840px) {
+  #intro {
+    background-attachment: scroll;
+  }
+  #aboutMeContainer {
+    max-width: 90%;
+  }
+  #skills {
+    width: 90%;
+  }
+  #languages, #frameworks, #technologies {
+    width: 225px;
+  }
+  #about, #project, #contactme {
+    min-height: 60vh;
+  }
+  .projectDiv {
+    max-width: calc(95vw / 2);
+  }
+  .projectView, .projectCode {
+    font-size: .9rem;
+  }
+  .buttonDiv {
+    margin-top: 2rem;
+  }
+  .fa-chevron-right {
+    font-size: .8rem;
+  }
+}
+@media only screen and (max-width: 440px) {
+  #navList {
+    width: 90%;
+  }
+  #hello {
+    padding-bottom: 4rem;
+  }
+  .lineBreak {
+    display: block;
+  }
+  .sectionHeader {
+    font-size: 2.8rem;
+  }
+  #languages, #frameworks, #technologies {
+    width: 80%;
+  }
+  #frameworks, #technologies {
+    margin-top: .75rem;
+  }
+  #skills {
+    justify-content: center;
+  }
+  #projects {
+    max-width: 100%;
+  }
+  .projectDiv {
+    max-width: 100%;
+  }
+  .overlayText {
+    padding: .5rem;
+  }
+  .projectTitle {
+    font-size: 1.5rem;
+  }
+  .projectSkill {
+    font-size: 1rem;
+  }
+  .projectView, .projectCode {
+    padding: .3rem 1rem;
+  }
+  #contact {
+    padding-bottom: 8rem;
+  }
+  footer .headerContainer {
+    margin: 0 auto;
+  }
+  #hireMe {
+    margin: 2.25rem auto;
+  }
+}
