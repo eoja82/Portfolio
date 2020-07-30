@@ -1,4 +1,4 @@
-import { portfolio, filters } from "./data.js"
+import { portfolio, filters } from "../dist/data.js"
 
 // underline nav links on mouseenter
 const navLinks = document.querySelectorAll(".navLink");
