@@ -31,14 +31,14 @@ const portfolio = [
     about: "A full stack app built with JavaScript, Node.js, Mongoose, Express and MongoDB that gets current stock prices from an API.  The app also includes Chai assertion testing and Helmet information security.",
     skills: ["Node.js", "Express", "Mongoose", "MongoDB", "Chai", "JavaScript"]
   },
-  {
+  /* {
     src: "./img/chatRoom.png", 
     alt: "Chat Room", 
     view: "https://rapid-powder.glitch.me/",
     code: "https://glitch.com/edit/#!/rapid-powder?path=server.js:1:0",
     about: "A full stack Socket.IO chat app.  Login with GitHub authentication strategy for Passport.",
     skills: ["JavaScript", "Node.js", "Express", "MongoDB", "Socket.IO", "Passport"]
-  },
+  }, */
   {
     src: "./img/choroplethMap.png", 
     alt: "US Education Choropleth Map", 
@@ -63,14 +63,14 @@ const portfolio = [
     about: "Built with React, Bootstrap, HTML, and CSS",
     skills: ["React", "Bootstrap", "HTML", "CSS"]
   },
-  {
+  /* {
     src: "./img/randomQuotes.png", 
     alt: "Random Quote Generator", 
     view: "https://eoja82.github.io/Random-Quote-Generator",
     code: "https://github.com/eoja82/Random-Quote-Generator",
     about: "Built with React, Bootstrap, HTML, and CSS.",
     skills: ["React", "Bootstrap", "HTML", "CSS"]
-  }
+  } */
 ];
 
 const filters = [
