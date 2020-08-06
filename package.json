@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "",
+  "description": "Erik Oja's Portfolio",
   "main": "index.js",
   "scripts": {
     "deploy": "gh-pages -d dist",
@@ -11,8 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/eoja82/Portfolio.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["web", "developer", "portfolio"],
+  "author": "Erik Oja",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/eoja82/Portfolio/issues"
