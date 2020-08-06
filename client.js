@@ -1,6 +1,6 @@
 import { portfolio, filters } from "./data.js"
 
-// make sure backgoround image is loaded before fading in over top of it
+// make sure background image is loaded before fading in over top of it
 addEventListener("DOMContentLoaded", animateIntro);
 
 function animateIntro() {
@@ -96,31 +96,11 @@ portfolio.forEach( (x, i) => {
   codeIcon.className = "fas fa-chevron-right";
   code.appendChild(codeIcon);
   buttonDiv.appendChild(code);
-  /* overlayText.appendChild(buttonDiv); */
-
-  /* let about = document.createElement("button");
-  about.className = "projectAbout";
-  about.innerHTML = "ABOUT ";
-  about.dataset.about = x.about;
-  let aboutIcon = document.createElement("i");
-  aboutIcon.className = "fas fa-chevron-right";
-  about.appendChild(aboutIcon);
-  buttonDiv.appendChild(about); */
   
   overlayText.appendChild(buttonDiv);
   overlay.appendChild(overlayText);
   div.appendChild(overlay);
 });
-
-// add event listener to project overlay about
-/* const projectAbouts = document.querySelectorAll(".projectAbout");
-projectAbouts.forEach( x => {
-  x.addEventListener("click", displayAbout);
-});
-
-function displayAbout(e) {
-  alert(e.target.dataset.about);
-} */
 
 // add project filters to DOM
 const filterOptions = document.querySelector(".filterOptions");
@@ -211,7 +191,7 @@ function filter(event) {
   tofadeOut[tofadeOut.length - 1].addEventListener("animationend", fadeInFiltered);
 
   function fadeInFiltered() {
-    // remove event listener so it  doesn't fire at end of toFadeIn animation 
+    // remove event listener so it doesn't fire at end of toFadeIn animation 
     tofadeOut[tofadeOut.length - 1].removeEventListener("animationend", fadeInFiltered);
     toFadeIn = [];
     delayIn = 0;
