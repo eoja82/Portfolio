@@ -1,5 +1,19 @@
 import { portfolio, filters } from "./data.js"
 
+// make sure backgoround image is loaded before fading in over top of it
+addEventListener("DOMContentLoaded", animateIntro);
+
+function animateIntro() {
+  const fadeInDown = document.getElementById("fadeInDown"),
+        fadeInUp = document.getElementById("fadeInUp");
+
+  fadeInDown.style.display = "block";
+  fadeInDown.className = "animated fadeInDown";
+  fadeInUp.style.display = "block";
+  fadeInUp.className = "animated fadeInUp";
+  removeEventListener("DOMContentLoaded", animateIntro);
+}
+
 // underline nav links on mouseenter
 const navLinks = document.querySelectorAll(".navLink");
 

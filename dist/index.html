@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Erik Oja - Portfolio</title>
+  <title>Erik Oja's Portfolio</title>
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
@@ -12,7 +12,7 @@
 
 </head>
 <body>
-  <nav class="animated fadeIn delay-3s">
+  <nav class="animated fadeIn">   <!-- delay-3s -->
     <ul id="navList">
       <li class="navLink active" data-nav-link="#">
         <a href="#">Home</a>
@@ -35,14 +35,14 @@
   
   <main>
     <section id="intro">
-      <!-- these spans are necessary for looping over the class names in client.js -->
+      <!-- these two spans are necessary for looping over the class names in client.js -->
       <span class="sectionHeader"></span>
       <span class="headerBarContainer" style="display: none;"></span>
       <div id="hello">
-        <h1 class="animated fadeInDown">
+        <h1 id="fadeInDown" style="display: none;">  <!-- class="animated fadeInDown" -->
           Hello, my name is <br class="lineBreak"><span class="name">Erik Oja</span>.
         </h1>
-        <h2 class="animated fadeInUp">
+        <h2 id="fadeInUp" style="display: none;"> <!-- class="animated fadeInUp" -->
           I'm a full stack <span class="whoAmI">web developer</span>.
         </h2>
       </div>
@@ -58,13 +58,10 @@
       <div id="aboutMeContainer">
         <div id="aboutMe">
           <p>
-            I've always wondered how the websites we see on our computers and devices were created.
+            I'm a logical, critical thinker that enjoys the problem solving and continuous learning inherent in software development.  
           </p>
           <p>
-            The curiosity finally got the best of me and I decided to take a deep dive into figuring it out.  Right away, I got hooked on learning how code and building things.  This passion (obsession?) drives me to continue to learn and build and to push my self to learn more everyday.
-          </p>
-          <p>
-            It's now time for the next step - to turn this passion into a career!   
+            My mission is to use my skills and passion for learning to build intuitive and responsive web applications.
           </p>
         </div>
       </div>
@@ -77,6 +74,7 @@
             <li>HTML</li>
             <li>CSS</li>
             <li>Python</li>
+            <!-- <li>C</li> -->
             <li>SQL</li>
             <li>GraphQL</li>
           </ul>
@@ -89,7 +87,8 @@
             <li>Node.js</li>
             <li>MongoDB</li>
             <li>Mongoose</li>
-            <li>Chai</li>
+            <li>Git / GitHub</li>
+            <!-- <li>Chai</li> -->
             <li>D3.js</li>
           </ul>
         </div>
@@ -98,11 +97,11 @@
           <h3 class="skillH3">Frameworks</h3>
           <ul class="skillList">
             <li>Express</li>
-            <li>Bootstrap</li>
             <li>Gatsby</li>
+            <li>Bootstrap</li>
             <li>W3.CSS</li>
-            <li>Mocha</li>
-            <li>Socket.IO</li>
+            <!-- <li>Mocha</li> -->
+            <!-- <li>Socket.IO</li> -->
           </ul>
         </div>
       </div>
