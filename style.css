@@ -62,11 +62,11 @@ li.active a {
 /* intro section */
 #intro {
   background-image: url(./img/introPhoto.jpg);
+  background-color: rgb(22, 22, 22);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -449,10 +449,13 @@ footer {
   text-align: center;
   color: rgb(138, 138,138);
 }
-@media only screen and (max-width: 840px) {
+/* turn off parallax on mobile devices */
+@media only screen and (max-width: 1366px) {
   #intro {
     background-attachment: scroll;
   }
+}
+@media only screen and (max-width: 840px) {
   #aboutMeContainer {
     max-width: 90%;
   }
@@ -476,6 +479,14 @@ footer {
   }
   .fa-chevron-right {
     font-size: .8rem;
+  }
+}
+@media only screen and (max-height: 440px) {
+  .headerContainer {
+    margin: 0 auto 1rem;
+  }
+  .copywrite {
+    padding: 16px 0 0;
   }
 }
 @media only screen and (max-width: 440px) {
