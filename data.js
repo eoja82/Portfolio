@@ -1,7 +1,7 @@
 const portfolio = [
   {
     src: "./img/mineSweeper.png", 
-    alt: "Minesweeper Game", 
+    alt: "Minesweeper", 
     view: "https://game-minesweeper.glitch.me/",
     code: "https://github.com/eoja82/Mine-Sweeper",
     about: "A full stack app built with Node.js, Express, Mongoose, and MongoDB to store users' scores, and JavaScript for the game logic.",
@@ -30,6 +30,14 @@ const portfolio = [
     code: "https://github.com/eoja82/multi-project-issue-tracker",
     about: "Tracks issues for multiple projects.  Issues can be sorted by date and filtered by project, the user that created the issue, the user the issue is asigned to, and whether the issue is open or closed.",
     skills: ["JavaScript", "Node.js", "Express", "Mongoose", "MongoDB"]
+  },
+  {
+    src: "./img/tetris.png",
+    alt: "Tetris",
+    view: "https://eoja82.github.io/tetris/",
+    code: "https://github.com/eoja82/tetris",
+    about: "The classic Tetris game built with JavaScript.",
+    skills: ["JavaScript", "HTML", "CSS", "W3.CSS", "Animate.css"]
   },
   {
     src: "./img/stockPriceChecker.png", 
