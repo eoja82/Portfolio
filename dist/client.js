@@ -1,4 +1,15 @@
-import { portfolio, filters } from "./data.js"
+import { portfolio, filters } from "./data.js";
+
+const body = document.querySelector("body"),
+      fadeInDown = document.getElementById("fadeInDown"),
+      fadeInUp = document.getElementById("fadeInUp");
+
+body.onload = function() {
+  fadeInDown.classList.add("animated", "fadeInDown");
+  fadeInDown.style.visibility = "visible";
+  fadeInUp.classList.add("animated", "fadeInUp");
+  fadeInUp.style.visibility = "visible";
+}
 
 // underline nav links on mouseenter
 const navLinks = document.querySelectorAll(".navLink");
