@@ -78,16 +78,18 @@ li.active a {
   text-align: center;
   color: rgb(242, 242, 242);
 }
-.fadeInDown {
+#fadeInDown {
   font-weight: 300;
   font-size: 2rem;
   animation-duration: 1.5s;
   margin-top: 0;
+  visibility: hidden;
 }
-.fadeInUp {
+#fadeInUp {
   font-weight: 300;
   animation-delay: 1.5s;
   animation-duration: 1.5s;
+  visibility: hidden;
 }
 .lineBreak {
   display: none;
