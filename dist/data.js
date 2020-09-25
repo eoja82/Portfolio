@@ -16,14 +16,6 @@ const portfolio = [
     skills: ["React", "Gatsby", "GraphQL", "HTML", "CSS"]
   },
   {
-    src: "./img/portfolio.png",
-    alt: "My Portfolio",
-    view: "https://www.erikoja.com/",
-    code: "https://github.com/eoja82/Portfolio",
-    about: "My protfolio website you are viewing.",
-    skills: ["JavaScript", "HTML", "CSS", "Animate.css"]
-  },
-  {
     src: "./img/issueTracker.png", 
     alt: "Issue Tracker", 
     view: "https://multi-project-issue-tracker.glitch.me/",
@@ -38,6 +30,22 @@ const portfolio = [
     code: "https://github.com/eoja82/tetris",
     about: "The classic Tetris game built with JavaScript.",
     skills: ["JavaScript", "HTML", "CSS", "W3.CSS", "Animate.css"]
+  },
+  {
+    src: "./img/forSale.png",
+    alt: "For Sale Template",
+    view: "https://eoja82.github.io/For-Sale/",
+    code: "https://github.com/eoja82/For-Sale",
+    about: "A template website you can use to list your personal items for sale.",
+    skills: ["React", "Gatsby", "GraphQL", "HTML", "CSS"]
+  },
+  {
+    src: "./img/portfolio.png",
+    alt: "My Portfolio",
+    view: "https://www.erikoja.com/",
+    code: "https://github.com/eoja82/Portfolio",
+    about: "My protfolio website you are viewing.",
+    skills: ["JavaScript", "HTML", "CSS", "Animate.css"]
   },
   {
     src: "./img/stockPriceChecker.png", 
