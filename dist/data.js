@@ -21,7 +21,7 @@ const portfolio = [
     view: "https://multi-project-issue-tracker.glitch.me/",
     code: "https://github.com/eoja82/multi-project-issue-tracker",
     about: "Tracks issues for multiple projects.  Issues can be sorted by date and filtered by project, the user that created the issue, the user the issue is asigned to, and whether the issue is open or closed.",
-    skills: ["JavaScript", "Node.js", "Express", "Mongoose", "MongoDB"]
+    skills: ["JavaScript", "Node.js", "Express", "Mongoose", "MongoDB", "Mocha/Chai"]
   },
   {
     src: "./img/tetris.png",
@@ -53,7 +53,7 @@ const portfolio = [
     view: "https://fccstockpricecheck.glitch.me/",
     code: "https://github.com/eoja82/Stock-Price-Checker",
     about: "A full stack app built with JavaScript, Node.js, Mongoose, Express and MongoDB that gets current stock prices from an API.  The app also includes Chai assertion testing and Helmet information security.",
-    skills: ["Node.js", "Express", "Mongoose", "MongoDB", "Chai", "JavaScript"]
+    skills: ["Node.js", "Express", "Mongoose", "MongoDB", "Mocha/Chai", "JavaScript"]
   },
   {
     src: "./img/choroplethMap.png", 
