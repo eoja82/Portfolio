@@ -3,7 +3,7 @@ $(document).ready(function(){
   $("a[href^='#']").on('click', function(event) {
 
     // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
+    if (this.hash !== "" && navigator.userAgent.indexOf("Chrome") === -1) {
       // Prevent default anchor click behavior
       event.preventDefault();
 
