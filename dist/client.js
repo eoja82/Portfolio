@@ -248,16 +248,16 @@ function contactLinkMouseleave(event) {
 function animateIcon(e) {
   e.style.backgroundColor = "#86c232";
   e.style.color = "rgb(64,66,68)";
-  e.style.width = "80px";
-  e.style.height = "80px";
+  e.style.width = "75px";
+  e.style.height = "75px";
   e.style.fontSize = "3rem";
 }
 
 function normalizeIcon(e) {
   e.style.backgroundColor = "transparent";
   e.style.color = "#86c232";
-  e.style.width = "65px";
-  e.style.height = "65px";
+  e.style.width = "65px"; 
+  e.style.height = "65px"; 
   e.style.fontSize = "2.5rem";
 }
 
