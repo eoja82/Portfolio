@@ -445,6 +445,20 @@ footer {
   color: rgb(242, 242, 242);
   text-decoration: none;
 }
+@media (hover: hover) {
+  .navLink a:hover .navHr,
+  .linkDescription:hover .footerHr {
+    width: 100%;
+    visibility: visible;
+  }
+  .linkIcon:hover {
+    background-color: #86c232;
+    color: rgb(64,66,68);
+    width: 75px;
+    height: 75px;
+    font-size: 3rem;
+  }
+}
 .copywrite {
   position: absolute;
   bottom: 1rem;
