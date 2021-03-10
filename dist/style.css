@@ -58,6 +58,7 @@ li.active a {
   visibility: hidden;
   transition: .3s;
 }
+
 /* intro section */
 #intro {
   background-image: url(./img/introPhoto.jpg);
