@@ -11,27 +11,6 @@ body.onload = function() {
   fadeInUp.style.visibility = "visible";
 }
 
-// underline nav links on mouseenter
-const navLinks = document.querySelectorAll(".navLink");
-
-navLinks.forEach( x => {
-  x.firstElementChild.addEventListener("mouseenter", underlineNavLink);
-});
-
-function underlineNavLink(event) {
-  // disable if touched not mouseenter
-  if (event.webkitForce > 0 || event.mozPressure > 0) return;
-  event.target.nextElementSibling.style.visibility = "visible";
-  event.target.nextElementSibling.style.width = "100%";
-
-  event.target.addEventListener("mouseleave", mouseOut);
-
-  function mouseOut(event) {
-    event.target.nextElementSibling.style.visibility = "hidden";
-    event.target.nextElementSibling.style.width = "0";
-  }
-}
-
 // add portfolio to DOM
 const projects = document.querySelector("#projects");
 
@@ -210,65 +189,6 @@ function filter(event) {
 
   filter.innerText = event.target.innerText;
   hideFilter();
-}
-
-// animate contact icons and descriptions on mouseenter
-const linkIcons = document.querySelectorAll(".linkIcon");
-const linkDescription = document.querySelectorAll(".linkDescription");
-
-linkIcons.forEach( x => {
-  x.addEventListener("mouseenter", contactLinkMouseemter);
-});
-linkDescription.forEach( x => {
-  x.addEventListener("mouseenter", contactLinkMouseemter);
-});
-
-function contactLinkMouseemter(event) {
-  // don't animate if touch
-  if (event.webkitForce > 0 || event.mozPressure > 0) return;
-  if (event.target.classList.contains("linkIcon")) {
-    animateIcon(event.target);
-    event.target.addEventListener("mouseleave", contactLinkMouseleave);
-  }
-  if (event.target.classList.contains("linkDescription")) {
-    animateDescription(event.target.nextElementSibling);
-    event.target.addEventListener("mouseleave", contactLinkMouseleave);
-  }
-}
-
-function contactLinkMouseleave(event) {
-  if (event.target.classList.contains("linkIcon")) {
-    normalizeIcon(event.target);
-  }
-  if (event.target.classList.contains("linkDescription")) {
-    normalizeDescription(event.target.nextElementSibling);
-  }
-}
-
-function animateIcon(e) {
-  e.style.backgroundColor = "#86c232";
-  e.style.color = "rgb(64,66,68)";
-  e.style.width = "75px";
-  e.style.height = "75px";
-  e.style.fontSize = "3rem";
-}
-
-function normalizeIcon(e) {
-  e.style.backgroundColor = "transparent";
-  e.style.color = "#86c232";
-  e.style.width = "65px"; 
-  e.style.height = "65px"; 
-  e.style.fontSize = "2.5rem";
-}
-
-function animateDescription(e) {
-  e.style.visibility = "visible";
-  e.style.width = "100%";
-}
-
-function normalizeDescription(e) {
-  e.style.visibility = "hidden";
-  e.style.width = "0";
 }
 
 // on scroll animations
