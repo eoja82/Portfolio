@@ -467,7 +467,7 @@ footer {
   padding: 16px 0;
   font-weight: 100;
   text-align: center;
-  color: rgb(138, 138,138);
+  color: rgb(181, 181, 181);
 }
 /* turn off parallax on mobile devices */
 @media only screen and (max-width: 1366px) {
