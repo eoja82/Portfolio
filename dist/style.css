@@ -288,7 +288,8 @@ li.active a {
   width: 100%;
   margin: 0 auto;
   justify-content: center;
-  animation-delay: .6s;
+  visibility: hidden;
+  animation-delay: .5s;
   z-index: 1;
 }
 #filterBy {
