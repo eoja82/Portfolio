@@ -56,12 +56,12 @@ const portfolio = [
     skills: ["Node.js", "Express", "Mongoose", "MongoDB", "Mocha/Chai", "JavaScript"]
   },
   {
-    src: "./img/choroplethMap.png", 
-    alt: "US Education Choropleth Map", 
-    view: "https://codepen.io/EOJA/full/OePXNb",
-    code: "https://github.com/eoja82/fcc-Data-Visualization-Projects/tree/master/ChoroplethMap",
-    about: 'A D3.js data visualization project.  Follow the "View" link to see more D3.js projects.',
-    skills: ["JavaScript", "D3.js", "HTML", "CSS"]
+    src: "./img/D3.png", 
+    alt: "Data Visualization With D3.js", 
+    view: "https://eoja82.github.io/fcc-Data-Visualization-Projects/",
+    code: "https://github.com/eoja82/fcc-Data-Visualization-Projects",
+    about: 'Five D3.js data visualization projects.',
+    skills: ["D3.js", "JavaScript", "W3.CSS", "HTML", "CSS"]
   },
   {
     src: "./img/pomodoroClock.png", 
