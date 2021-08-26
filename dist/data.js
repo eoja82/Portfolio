@@ -26,10 +26,10 @@ const portfolio = [
   {
     src: "./img/tetris.png",
     alt: "Tetris",
-    view: "https://eoja82.github.io/tetris/",
+    view: "https://game-tetris.glitch.me/",
     code: "https://github.com/eoja82/tetris",
     about: "The classic Tetris game built with JavaScript.",
-    skills: ["JavaScript", "HTML", "CSS", "W3.CSS", "Animate.css"]
+    skills: ["JavaScript", "Python", "Django", "SQLite", "HTML", "CSS"]
   },
   {
     src: "./img/forSale.png",
@@ -82,7 +82,7 @@ const portfolio = [
 ];
 
 const filters = [
-  "JavaScript", "React", "Node.js", "MongoDB", "D3.js", "All"
+  "JavaScript", "React", "Node.js", "MongoDB", "Python", "D3.js", "All"
 ];
 
 export { portfolio, filters }
