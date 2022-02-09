@@ -109,13 +109,13 @@ nav {
   padding: .6rem 0 calc(.6rem - 3px);
   cursor: pointer;
 }
-.navLink div {
+.navLink a {
   font-size: 1.2rem;
   font-weight: 300;
   text-decoration: none;
   color: rgb(168, 168, 168);
 }
-li.active div {
+li.active a {
   color: var(--c-limeGreen);
 }
 .navHr, .footerHr {
@@ -522,7 +522,7 @@ footer {
   text-decoration: none;
 }
 @media (hover: hover) {
-  .navLink div:hover .navHr,
+  .navLink a:hover .navHr,
   .linkDescription:hover .footerHr {
     width: 100%;
     visibility: visible;
