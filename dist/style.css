@@ -450,7 +450,10 @@ footer {
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
+  width: 90%;
+  max-width: 900px;
   height: 200px;
+  margin: 0 auto;
   padding: var(--contact-padding);
 }
 #hireMe {
@@ -462,6 +465,9 @@ footer {
   line-height: 1.5;
   text-align: center;
   visibility: hidden;
+}
+#email, #linkedin, #github {
+  width: calc(100% / 3);
 }
 #email {
   animation-delay: .3s;
