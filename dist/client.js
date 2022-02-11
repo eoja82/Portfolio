@@ -11,6 +11,26 @@ body.onload = function() {
   fadeInUp.style.visibility = "visible";
 }
 
+// gsap scrollTo animation for nav links
+const links = document.querySelectorAll(".navLink");
+links.forEach( link => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const hash = link.firstElementChild.getAttribute("href");
+    gsap.to(window, {
+      duration: .8,
+      scrollTo: hash,
+      ease: "sine.out",
+      onComplete: setHash
+    });
+
+    // Add hash (#) to URL when done scrolling (default click behavior)
+    function setHash() {
+      window.location.hash = hash;
+    }
+  });
+});
+
 // animation of #intro background
 const introBgImg = document.getElementById("introBgImg");
 introBgImg.style.backgroundPosition = "50% 0px"
