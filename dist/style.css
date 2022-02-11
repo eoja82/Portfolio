@@ -28,12 +28,6 @@
   --contact-padding: 0;
   --hireMe-margin: 2.25rem auto 0;
 }
-/* turn off parallax on mobile devices */
-@media only screen and (max-width: 1366px) {
-  :root {
-    --intro-bg-attachment: scroll;
-  }
-}
 @media only screen and (max-width: 840px) {
   :root {
     --containter-max-width: 95%;
