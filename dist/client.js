@@ -11,6 +11,20 @@ body.onload = function() {
   fadeInUp.style.visibility = "visible";
 }
 
+// animation of #intro background
+const introBgImg = document.getElementById("introBgImg");
+introBgImg.style.backgroundPosition = "50% 0px"
+gsap.to(introBgImg, {
+  backgroundPosition: `50% ${innerHeight / 2}px`,
+  ease: "none",
+  scrollTrigger: {
+    trigger: introBgImg,
+    start: "top top",
+    end: "bottom top",
+    scrub: true
+  }
+});
+
 // add portfolio to DOM
 const projects = document.querySelector("#projects");
 
