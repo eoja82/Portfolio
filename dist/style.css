@@ -144,6 +144,12 @@ li.active a {
   align-items: center;
   position: relative;
 }
+/* this needs to be positioned at top of section
+   for changing active nav link text color on scroll  */
+#intro .headerContainer {
+  position: absolute;
+  top: 0;
+}
 #hello {
   text-align: center;
   color: rgb(242, 242, 242);

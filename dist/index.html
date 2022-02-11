@@ -44,9 +44,11 @@
   
   <main>
     <section id="intro">
-      <!-- these two spans are necessary for looping over the class names in client.js -->
-      <span class="sectionHeader"></span>
-      <span class="headerBarContainer" style="display: none;"></span>
+      <div class="headerContainer">
+        <!-- these two spans are necessary for looping over the class names in client.js -->
+        <span class="sectionHeader"></span>
+        <span class="headerBarContainer" style="display: none;"></span>
+      </div>
       <div id="hello">
         <h1 id="fadeInDown">
           Hello, my name is <br class="lineBreak"><span class="name">Erik Oja</span>.
@@ -166,10 +168,12 @@
     </div>
     <p class="copywrite">&copy; 2021 Erik Oja.  All rights reserved.</p>
   </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollToPlugin.min.js"></script>
   <script src="./data.js" type="module"></script>
   <script src="./client.js" type="module"></script>
+  <script src="./smoothScroll.js"></script>
 </body>
 </html>
