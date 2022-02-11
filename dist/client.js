@@ -254,7 +254,7 @@ function filter(event) {
       if ((positionFromTop <= windowHeight * .49 && positionFromTop > 0) || (positionFromBottom <= windowHeight * .75 && positionFromBottom < windowHeight)) {
         const navLinks = document.querySelectorAll(".navLink");
         navLinks.forEach( x => {
-          if (`#${sectionHeader[i].parentElement.parentElement.id}` == x.dataset.navLink) {
+          if (`#${sectionHeader[i].parentElement.parentElement.id}` === x.firstElementChild.getAttribute("href")) {
             x.classList.add("active");
           } else {
             x.classList.remove("active");
