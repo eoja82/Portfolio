@@ -11,6 +11,40 @@ body.onload = function() {
   fadeInUp.style.visibility = "visible";
 }
 
+// gsap scrollTo animation for nav links
+const links = document.querySelectorAll(".navLink");
+links.forEach( link => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const hash = link.firstElementChild.getAttribute("href");
+    gsap.to(window, {
+      duration: .8,
+      scrollTo: hash,
+      ease: "sine.out",
+      onComplete: setHash
+    });
+
+    // Add hash (#) to URL when done scrolling (default click behavior)
+    function setHash() {
+      window.location.hash = hash;
+    }
+  });
+});
+
+// animation of #intro background
+const introBgImg = document.getElementById("introBgImg");
+introBgImg.style.backgroundPosition = "50% 0px"
+gsap.to(introBgImg, {
+  backgroundPosition: `50% ${innerHeight / 2}px`,
+  ease: "none",
+  scrollTrigger: {
+    trigger: introBgImg,
+    start: "top top",
+    end: "bottom top",
+    scrub: true
+  }
+});
+
 // add portfolio to DOM
 const projects = document.querySelector("#projects");
 
@@ -159,7 +193,7 @@ function filter(event) {
   delayOut = 0;
   tofadeOut.forEach( x => {
     x.style.animationDelay = `${delayOut}s`;
-    delayOut += .1;
+    delayOut += .05;
     x.classList.add("animated", animationOut);
   });
 
@@ -182,7 +216,7 @@ function filter(event) {
     });
     toFadeIn.forEach( (x, i) => {
       x.style.animationDelay = `${delayIn}s`;
-      delayIn += .1;
+      delayIn += .05;
       x.classList.add("animated", animationIn);
     });
   }

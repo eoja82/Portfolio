@@ -28,12 +28,6 @@
   --contact-padding: 0;
   --hireMe-margin: 2.25rem auto 0;
 }
-/* turn off parallax on mobile devices */
-@media only screen and (max-width: 1366px) {
-  :root {
-    --intro-bg-attachment: scroll;
-  }
-}
 @media only screen and (max-width: 840px) {
   :root {
     --containter-max-width: 95%;
@@ -83,9 +77,6 @@ body {
   padding: 0;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
-html {
-  scroll-behavior: smooth;
-}
 
 /* navigation */
 nav {
@@ -107,6 +98,7 @@ nav {
 .navLink {
   list-style-type: none;
   padding: .6rem 0 calc(.6rem - 3px);
+  cursor: pointer;
 }
 .navLink a {
   font-size: 1.2rem;
@@ -130,18 +122,30 @@ li.active a {
 
 /* intro section */
 #intro {
-  background-image: url(./img/introPhoto.jpg);
-  background-color: rgb(22, 22, 22);
-  background-attachment: var(--intro-bg-attachment);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
+}
+/* this needs to be positioned at top of section
+   for changing active nav link text color on scroll  */
+#intro .headerContainer {
+  position: absolute;
+  top: 0;
+}
+#introBgImg {
+  background-image: url(./img/introPhoto.jpg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 #hello {
   text-align: center;
@@ -450,7 +454,10 @@ footer {
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
+  width: 90%;
+  max-width: 900px;
   height: 200px;
+  margin: 0 auto;
   padding: var(--contact-padding);
 }
 #hireMe {
@@ -462,6 +469,9 @@ footer {
   line-height: 1.5;
   text-align: center;
   visibility: hidden;
+}
+#email, #linkedin, #github {
+  width: calc(100% / 3);
 }
 #email {
   animation-delay: .3s;
