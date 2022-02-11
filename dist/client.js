@@ -173,7 +173,7 @@ function filter(event) {
   delayOut = 0;
   tofadeOut.forEach( x => {
     x.style.animationDelay = `${delayOut}s`;
-    delayOut += .1;
+    delayOut += .05;
     x.classList.add("animated", animationOut);
   });
 
@@ -196,7 +196,7 @@ function filter(event) {
     });
     toFadeIn.forEach( (x, i) => {
       x.style.animationDelay = `${delayIn}s`;
-      delayIn += .1;
+      delayIn += .05;
       x.classList.add("animated", animationIn);
     });
   }
