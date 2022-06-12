@@ -87,6 +87,7 @@ nav {
   margin: 0 auto;
   z-index: 100;
   animation-delay: 3s;
+  overflow: hidden;
 }
 #navList {
   display: flex;
@@ -128,6 +129,7 @@ li.active a {
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
 }
 /* this needs to be positioned at top of section
    for changing active nav link text color on scroll  */
