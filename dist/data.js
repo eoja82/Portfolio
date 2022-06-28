@@ -45,7 +45,7 @@ const portfolio = [
     view: "https://www.erikoja.com/",
     code: "https://github.com/eoja82/Portfolio",
     about: "My protfolio website you are viewing.",
-    skills: ["JavaScript", "HTML", "CSS", "Animate.css"]
+    skills: ["JavaScript", "HTML", "CSS", "GSAP", "Animate.css"]
   },
   {
     src: "./img/stockPriceChecker.png", 
